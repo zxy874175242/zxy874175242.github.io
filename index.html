@@ -1,172 +1,1439 @@
 <!DOCTYPE html>
 <html lang="ch">
 <head>
-    <meta charset="UTF-8">
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-    <meta name="author" content="Juan">
-
-
-    <meta name="subtitle" content="Juan share">
-
-
-
-
-<title>Hexo</title>
+<link rel="stylesheet" href="/css/main.css">
 
 
-
-    <link rel="icon" href="/favicon.ico">
-
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 
 
-
-    <!-- stylesheets list from _config.yml -->
-    
-    <link rel="stylesheet" href="/css/style.css">
-    
-
-
-
-    <!-- scripts list from _config.yml -->
-    
-    <script src="/js/script.js"></script>
-    
-    <script src="/js/tocbot.min.js"></script>
-    
-
-
-
-    
-    
-        
-    
-
-
-<meta name="generator" content="Hexo 4.2.0"></head>
-<body>
-    <div class="wrapper">
-        <header>
-    <nav class="navbar">
-        <div class="container">
-            <div class="navbar-header header-logo"><a href="/">Bentham&#39;s Blog</a></div>
-            <div class="menu navbar-right">
-                
-                    <a class="menu-item" href="/archives">Posts</a>
-                
-                    <a class="menu-item" href="/category">Categories</a>
-                
-                    <a class="menu-item" href="/tag">Tags</a>
-                
-                    <a class="menu-item" href="/about">About</a>
-                
-                <input id="switch_default" type="checkbox" class="switch_default">
-                <label for="switch_default" class="toggleBtn"></label>
-            </div>
-
-        </div>
-    </nav>
-
-    
-    <nav class="navbar-mobile" id="nav-mobile">
-        <div class="container">
-            <div class="navbar-header">
-                <div>
-                    <a href="/">Bentham&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
-                </div>
-                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
-            </div>
-            <div class="menu" id="mobile-menu">
-                
-                    <a class="menu-item" href="/archives">Posts</a>
-                
-                    <a class="menu-item" href="/category">Categories</a>
-                
-                    <a class="menu-item" href="/tag">Tags</a>
-                
-                    <a class="menu-item" href="/about">About</a>
-                
-            </div>
-        </div>
-    </nav>
-
-</header>
-<script>
-    var mobileBtn = function f() {
-        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
-        var mobileMenu = document.getElementById("mobile-menu");
-        if(toggleMenu.classList.contains("active")){
-           toggleMenu.classList.remove("active")
-            mobileMenu.classList.remove("active")
-        }else{
-            toggleMenu.classList.add("active")
-            mobileMenu.classList.add("active")
-        }
-    }
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://yoursite.com').hostname,
+    root: '/',
+    scheme: 'Muse',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
 </script>
-        <div class="main">
-            
-    <div class="container">
-    <div class="intro">
-        <div class="avatar">
-            <a href="/archives"><img src="/image/avatar.jpeg"></a>
-        </div>
-        <div class="nickname">Jeremy Bentham</div>
-        <div class="description"><p>Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit.</strong> <br>Fusce eget urna vitae velit <em>eleifend interdum at ac</em> nisi.</p>
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="ch">
+<meta property="article:author" content="Juan">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: true,
+    isPost: false
+  };
+</script>
+
+  <title>Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Juan share</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Navigationsleiste an/ausschalten">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
 </div>
-        <div class="links">
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Startseite</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archiv</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
             
-                
-                    <a class="link-item" title="Blog" href="/archives">
-                        
-                        
-                            <i class="iconfont icon-blog"></i>
-                        
-                    </a>
-                
-                    <a class="link-item" title="ZhiHu" href="https://www.zhihu.com/people/sirice" target="_blank" rel="noopener">
-                        
-                        
-                            <i class="iconfont icon-zhihu"></i>
-                        
-                    </a>
-                
-                    <a class="link-item" title="Instagram" href="">
-                        
-                        
-                            <i class="iconfont icon-instagram"></i>
-                        
-                    </a>
-                
-                    <a class="link-item" title="Reddit" href="">
-                        
-                        
-                            <i class="iconfont icon-reddit"></i>
-                        
-                    </a>
-                
-                    <a class="link-item" title="Github" href="https://github.com/Siricee" target="_blank" rel="noopener">
-                        
-                        
-                            <i class="iconfont icon-github"></i>
-                        
-                    </a>
-                
-            
+
+  <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ch">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/28/OSLab8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Juan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/28/OSLab8/" class="post-title-link" itemprop="url">OSLab8</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+
+              <time title="Erstellt: 2020-01-28 19:10:11" itemprop="dateCreated datePublished" datetime="2020-01-28T19:10:11+08:00">2020-01-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2019-12-15 19:25:53" itemprop="dateModified" datetime="2019-12-15T19:25:53+08:00">2019-12-15</time>
+              </span>
+
+          
+
         </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="OSLab8"><a href="#OSLab8" class="headerlink" title="OSLab8"></a>OSLab8</h1><p>17373031 张欣玥</p>
+<h2 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a>实验内容</h2><ul>
+<li><p>本实验的基本内容是修改 Linux 0.11 的终端设备处理代码，对键盘输入和字符显示进行非常规的控制。</p>
+</li>
+<li><p>在初始状态，一切如常。用户按一次 F12 后，把应用程序向终端输出所有字母都替换为“*”。用户再按一次 F12，又恢复正常。第三次按 F12，再进行输出替换。依此类推。</p>
+</li>
+</ul>
+<p>以 ls 命令为例：</p>
+<ul>
+<li><p>正常情况：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ls</span></span><br><span class="line">hello.c hello.o hello</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>第一次按 F12，然后输入 ls：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># **</span></span><br><span class="line">*****.* *****.* *****</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>第二次按 F12，然后输入 ls：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ls</span></span><br><span class="line">hello.c hello.o hello</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>第三次按 F12，然后输入 ls：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># **</span></span><br><span class="line">*****.* *****.* *****</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="实验报告"><a href="#实验报告" class="headerlink" title="实验报告"></a>实验报告</h2><p>键盘 I/O 是典型的中断驱动，在 <code>kernel/chr_drv/console.c</code> 文件中：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">con_init</span><span class="params">(<span class="keyword">void</span>)</span>  <span class="comment">//控制台的初始化</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 键盘中断响应函数设为 keyboard_interrupt</span></span><br><span class="line">    set_trap_gate(<span class="number">0x21</span>, &amp;keyboard_interrupt);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>所以每次按键有动作，keyboard_interrupt 函数就会被调用，它在文件 <code>kernel/chr_drv/keyboard.S</code>（注意，扩展名是大写的 S）中实现。</p>
+<p>所有与键盘输入相关的功能都是在此文件中实现的，所以本实验的部分功能也可以在此文件中实现。</p>
+<p>简单说，<code>keyboard_interrupt</code> 被调用后，会将键盘扫描码做为下标，调用数组 <code>key_table</code> 保存的与该按键对应的响应函数。</p>
+<p><code>printf()</code> 等输出函数最终都是调用 <code>write()</code> 系统调用，所以控制好 <code>write()</code>，就能控制好输出字符。</p>
+<h3 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h3><p><code>keyboard.S</code></p>
+<p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20191215192401.png" alt=""></p>
+<p><code>console.c</code>的<code>con_write（）</code></p>
+<p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20191215192524.png" alt=""></p>
+<h3 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h3><p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20191215192229.png" alt=""></p>
+
+      
     </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ch">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/28/OSLab7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Juan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/28/OSLab7/" class="post-title-link" itemprop="url">OSLab7</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+
+              <time title="Erstellt: 2020-01-28 19:10:11" itemprop="dateCreated datePublished" datetime="2020-01-28T19:10:11+08:00">2020-01-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2019-12-08 20:35:53" itemprop="dateModified" datetime="2019-12-08T20:35:53+08:00">2019-12-08</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="OSLab7"><a href="#OSLab7" class="headerlink" title="OSLab7"></a>OSLab7</h1><p>17373031 张欣玥</p>
+<h2 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a>实验内容</h2><ul>
+<li><p>用 Bochs 调试工具跟踪 Linux 0.11 的地址翻译（地址映射）过程，了解 IA-32 和 Linux 0.11 的内存管理机制；</p>
+</li>
+<li><p>在 Ubuntu 上编写多进程的生产者—消费者程序，用共享内存做缓冲区；</p>
+<ul>
+<li>不用文件做缓冲区，而是使用共享内存；</li>
+<li>生产者和消费者分别是不同的程序。生产者是 producer.c，消费者是 consumer.c。两个程序都是单进程的，通过信号量和缓冲区进行通信。</li>
+</ul>
+<blockquote>
+<p>可以通过 <code>shmget()</code> 和 <code>shmat()</code> 两个系统调用使用共享内存。</p>
+</blockquote>
+</li>
+<li><p>在信号量实验的基础上，为 Linux 0.11 增加共享内存功能，并将生产者—消费者程序移植到 Linux 0.11。</p>
+<ul>
+<li><p>进程之间可以通过页共享进行通信，被共享的页叫做共享内存</p>
+<p><img src="https://doc.shiyanlou.com/userid19614labid573time1424086247964/wm" alt="img"></p>
+</li>
+<li><p>要求在 <code>mm/shm.c</code> 中实现 <code>shmget()</code> 和 <code>shmat()</code> 两个系统调用</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h2><h3 id="1、跟踪地址翻译过程"><a href="#1、跟踪地址翻译过程" class="headerlink" title="1、跟踪地址翻译过程"></a>1、跟踪地址翻译过程</h3><h4 id="启动调试器"><a href="#启动调试器" class="headerlink" title="启动调试器"></a>启动调试器</h4><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20191208033847.png" style="zoom:67%;" />
+
+<p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20191208034007.png" alt=""></p>
+<img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20191208034434.png" style="zoom:67%;" />
+
+<img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20191208034908.png" style="zoom:67%;" />
+
+<h4 id="查找线性地址"><a href="#查找线性地址" class="headerlink" title="查找线性地址"></a>查找线性地址</h4><ul>
+<li><p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20191208035230.png" alt=""></p>
+<ul>
+<li><p>ldtr 的值是 <code>0x0068=0000000001101000</code>（二进制），表示 LDT 表存放在 GDT 表的 1101（二进制）=13（十进制）号位置（每位数据的意义参考后文叙述的段选择子）。</p>
+</li>
+<li><p>GDT 的位置已经由 gdtr 明确给出，在物理地址的 <code>0x00005cb8</code></p>
+</li>
+</ul>
+</li>
+<li><p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20191208035832.png" alt=""></p>
+<p><code>ldtr:s=0x0068, dl=0x52d00068, dh=0x000082fd, valid=1</code></p>
+<p>所以LDT表的物理地址为<code>0x 00fd 52d0</code></p>
+</li>
+<li><p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20191208040140.png" alt=""></p>
+<p>LDT表前4项内容。</p>
+</li>
+<li><p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20191208040852.png" alt=""></p>
+<p>ds的值为0x0017，<code>0x0017=0000000000010111</code>（二进制），所以 RPL=11，可见是在最低的特权级（因为在应用程序中执行），TI=1，表示查找 LDT 表，索引值为 10（二进制）= 2（十进制），表示找 LDT 表中的第 3 个段描述符（从 0 开始编号）。LDT 和 GDT 的结构一样，每项占 8 个字节。所以第 3 项 <code>0x00003fff 0x10c0f300</code>（上一步骤的最后一个输出结果中） 就是搜寻好久的 ds 的段描述符了。</p>
+</li>
+<li><p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20191208040825.png" alt=""></p>
+<p>费了很大的劲，实际上我们需要的只有段基址一项数据，即段描述符 “0x00003fff 0x10c0f300” 中加粗部分组合成的 “0x10000000”。这就是 ds 段在线性地址空间中的起始地址。用同样的方法也可以算算其它段的基址，都是这个数。</p>
+<p>段基址+段内偏移，就是线性地址了。所以 ds:0x3004 的线性地址就是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0x10000000 + 0x3004 &#x3D; 0x10003004</span><br></pre></td></tr></table></figure>
+
+<p>用 <code>calc ds:0x3004</code> 命令可以验证这个结果。</p>
+</li>
+</ul>
+<h4 id="查找物理地址"><a href="#查找物理地址" class="headerlink" title="查找物理地址"></a>查找物理地址</h4><ul>
+<li><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20191208041809.png" alt=""></li>
+<li><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20191208042100.png" alt=""></li>
+<li><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20191208042507.png" style="zoom:80%;" />
+
+</li>
+</ul>
+<h3 id="2、基于共享内存的生产者—消费者程序"><a href="#2、基于共享内存的生产者—消费者程序" class="headerlink" title="2、基于共享内存的生产者—消费者程序"></a>2、基于共享内存的生产者—消费者程序</h3><blockquote>
+<p>Linux 下，可以通过 <code>shmget()</code> 和 <code>shmat()</code> 两个系统调用使用共享内存。</p>
+</blockquote>
+<p>运行结果</p>
+<p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20191208193227.png" alt=""></p>
+<h3 id="3、共享内存的实现"><a href="#3、共享内存的实现" class="headerlink" title="3、共享内存的实现"></a>3、共享内存的实现</h3><blockquote>
+<p>在 <code>mm/shm.c</code> 中实现 <code>shmget()</code> 和 <code>shmat()</code> 两个系统调用。</p>
+</blockquote>
+<p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20191208203316.png" alt=""></p>
+<p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20191208203334.png" alt=""></p>
+<p>unistd.h</p>
+<p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20191208194251.png" alt=""></p>
+<p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20191208194337.png" alt=""></p>
+<p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20191208201919.png" alt=""></p>
+<p>system_call.s</p>
+<p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20191208194448.png" alt=""></p>
+<p>sys.h</p>
+<p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20191208194659.png" alt=""></p>
+<p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20191208194735.png" alt=""></p>
+<p>Makefile</p>
+<p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20191208195219.png" alt=""></p>
+<p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20191208195156.png" alt=""></p>
+<p>结果（就很奇怪consumer和producer要输出在不同文件才行）</p>
+<p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20191208203119.png" alt=""></p>
+<h2 id="实验报告"><a href="#实验报告" class="headerlink" title="实验报告"></a>实验报告</h2><ul>
+<li><p>对于地址映射实验部分，列出你认为最重要的那几步（不超过 4 步），并给出你获得的实验数据。</p>
+<ul>
+<li><p>根据 GDTR 找到 LDT 表项。</p>
+</li>
+<li><p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20191208035832.png" alt=""></p>
+<p><code>ldtr:s=0x0068, dl=0x52d00068, dh=0x000082fd, valid=1</code></p>
+<p>所以LDT表的物理地址为<code>0x 00fd 52d0</code></p>
+</li>
+<li><p>根据 LDTR 找到页地址。</p>
+</li>
+<li><p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20191208040852.png" alt=""></p>
+<p>ds的值为0x0017，<code>0x0017=0000000000010111</code>（二进制），所以 RPL=11，可见是在最低的特权级（因为在应用程序中执行），TI=1，表示查找 LDT 表，索引值为 10（二进制）= 2（十进制），表示找 LDT 表中的第 3 个段描述符（从 0 开始编号）。LDT 和 GDT 的结构一样，每项占 8 个字节。所以第 3 项 <code>0x00003fff 0x10c0f300</code>（上一步骤的最后一个输出结果中） 就是搜寻好久的 ds 的段描述符了。</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>test.c 退出后，如果马上再运行一次，并再进行地址跟踪，你发现有哪些异同？为什么？</p>
+<ul>
+<li>得到的物理地址会不同。</li>
+<li>因为系统分配内存的方式是找到空闲区域就给进程分配，所以每次分配得到的地址会不同。</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ch">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/28/OSLab6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Juan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/28/OSLab6/" class="post-title-link" itemprop="url">OSLab6</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+
+              <time title="Erstellt: 2020-01-28 19:10:11" itemprop="dateCreated datePublished" datetime="2020-01-28T19:10:11+08:00">2020-01-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2019-11-24 19:43:25" itemprop="dateModified" datetime="2019-11-24T19:43:25+08:00">2019-11-24</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="OSLab6"><a href="#OSLab6" class="headerlink" title="OSLab6"></a>OSLab6</h1><p>17373031 张欣玥 172114</p>
+<h2 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a>实验内容</h2><ul>
+<li>在 Ubuntu 下编写程序，用信号量解决生产者——消费者问题；</li>
+<li>在 0.11 中实现信号量，用生产者—消费者程序检验之。</li>
+</ul>
+<h4 id="1-用信号量解决生产者—消费者问题"><a href="#1-用信号量解决生产者—消费者问题" class="headerlink" title="1.用信号量解决生产者—消费者问题"></a>1.用信号量解决生产者—消费者问题</h4><p>在 Ubuntu 上编写应用程序“pc.c”，解决经典的生产者—消费者问题，完成下面的功能：</p>
+<ul>
+<li>建立一个生产者进程，N 个消费者进程（N&gt;1）；</li>
+<li>用文件建立一个共享缓冲区；</li>
+<li>生产者进程依次向缓冲区写入整数 0,1,2,…,M，M&gt;=500；</li>
+<li>消费者进程从缓冲区读数，每次读一个，并将读出的数字从缓冲区删除，然后将本进程 ID 和 + 数字输出到标准输出；</li>
+<li>缓冲区同时最多只能保存 10 个数。</li>
+</ul>
+<p>一种可能的输出效果是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">10: 0</span><br><span class="line">10: 1</span><br><span class="line">10: 2</span><br><span class="line">10: 3</span><br><span class="line">10: 4</span><br><span class="line">11: 5</span><br><span class="line">11: 6</span><br><span class="line">12: 7</span><br><span class="line">10: 8</span><br><span class="line">12: 9</span><br><span class="line">12: 10</span><br><span class="line">12: 11</span><br><span class="line">12: 12</span><br><span class="line">……</span><br><span class="line">11: 498</span><br><span class="line">11: 499</span><br></pre></td></tr></table></figure>
+
+<p>其中 ID 的顺序会有较大变化，但冒号后的数字一定是从 0 开始递增加一的。</p>
+<p><code>pc.c</code> 中将会用到 <code>sem_open()</code>、<code>sem_close()</code>、<code>sem_wait()</code> 和 <code>sem_post()</code> 等信号量相关的系统调用，请查阅相关文档。</p>
+<h4 id="2-实现信号量"><a href="#2-实现信号量" class="headerlink" title="2. 实现信号量"></a>2. 实现信号量</h4><p>Linux 在 0.11 版还没有实现信号量，Linus 把这件富有挑战的工作留给了你。如果能实现一套山寨版的完全符合 POSIX 规范的信号量，无疑是很有成就感的。但时间暂时不允许我们这么做，所以先弄一套缩水版的类 POSIX 信号量，它的函数原型和标准并不完全相同，而且只包含如下系统调用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sem_t *sem_open(const char *name, unsigned int value);</span><br><span class="line">int sem_wait(sem_t *sem);</span><br><span class="line">int sem_post(sem_t *sem);</span><br><span class="line">int sem_unlink(const char *name);</span><br></pre></td></tr></table></figure>
+
+<p><code>sem_open()</code>的功能是创建一个信号量，或打开一个已经存在的信号量。</p>
+<ul>
+<li><p><code>sem_t</code> 是信号量类型，根据实现的需要自定义。</p>
+</li>
+<li><p><code>name</code> 是信号量的名字。不同的进程可以通过提供同样的 name 而共享同一个信号量。如果该信号量不存在，就创建新的名为 name 的信号量；如果存在，就打开已经存在的名为 name 的信号量。</p>
+</li>
+<li><p><code>value</code> 是信号量的初值，仅当新建信号量时，此参数才有效，其余情况下它被忽略。当成功时，返回值是该信号量的唯一标识（比如，在内核的地址、ID 等），由另两个系统调用使用。如失败，返回值是 NULL。</p>
+</li>
+<li><p><code>sem_wait()</code> 就是信号量的 P 原子操作。如果继续运行的条件不满足，则令调用进程等待在信号量 sem 上。返回 0 表示成功，返回 -1 表示失败。</p>
+</li>
+<li><p><code>sem_post()</code> 就是信号量的 V 原子操作。如果有等待 sem 的进程，它会唤醒其中的一个。返回 0 表示成功，返回 -1 表示失败。</p>
+</li>
+<li><p><code>sem_unlink()</code> 的功能是删除名为 name 的信号量。返回 0 表示成功，返回 -1 表示失败。</p>
+</li>
+</ul>
+<p>在 <code>kernel</code> 目录下新建 <code>sem.c</code> 文件实现如上功能。然后将 pc.c 从 Ubuntu 移植到 0.11 下，测试自己实现的信号量。</p>
+<h2 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h2><h3 id="1-编写pc-c"><a href="#1-编写pc-c" class="headerlink" title="1.编写pc.c"></a>1.编写<code>pc.c</code></h3><blockquote>
+<p>用了三个信号量empty、mutex、full</p>
+</blockquote>
+<img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191124171820818.png" alt="image-20191124171820818" style="zoom:50%;" />
+
+<ul>
+<li><p>生产者进程</p>
+<p><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191124172200403.png" alt="image-20191124172200403"></p>
+</li>
+<li><p>消费者进程</p>
+<p><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191124172215370.png" alt="image-20191124172215370"></p>
+</li>
+<li><p>在ubuntu上运行结果</p>
+<p><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191124165127532.png" alt="image-20191124165127532"></p>
+</li>
+</ul>
+<h3 id="2-实现信号量-1"><a href="#2-实现信号量-1" class="headerlink" title="2.实现信号量"></a>2.实现信号量</h3><ul>
+<li><p>新建<code>kernel\sem.c</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;linux&#x2F;kernel.h&gt;</span><br><span class="line">#include &lt;asm&#x2F;system.h&gt;</span><br><span class="line">#include &lt;linux&#x2F;sched.h&gt;</span><br><span class="line">#include &lt;asm&#x2F;segment.h&gt;</span><br><span class="line">#include &lt;unistd.h&gt;</span><br><span class="line"></span><br><span class="line">sem_t *sem_head &#x3D; &amp;((sem_t *)&#123;&quot;\0&quot;, 0, NULL, NULL&#125;);    </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">static inline int str_u2k(const char *ustr, char *kstr, unsigned int length)</span><br><span class="line">&#123;</span><br><span class="line">    char c;</span><br><span class="line">    int i;</span><br><span class="line"></span><br><span class="line">    for(i&#x3D;0; (c&#x3D;get_fs_byte(ustr++))!&#x3D;&#39;\0&#39; &amp;&amp; i&lt;length; i++)</span><br><span class="line">        *(kstr+i)&#x3D;c;</span><br><span class="line">    *(kstr+i)&#x3D;&#39;\0&#39;;</span><br><span class="line"></span><br><span class="line">    return i;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sem_t *sys_sem_open(const char *name, unsigned int value)</span><br><span class="line">&#123;</span><br><span class="line">    sem_t *sem_cur, *sem_pre;</span><br><span class="line">    char pname[SEM_NAME_LEN];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    str_u2k(name, pname, SEM_NAME_LEN);</span><br><span class="line"></span><br><span class="line">    for(sem_pre&#x3D;sem_head, sem_cur&#x3D;sem_head-&gt;next; sem_cur &amp;&amp; strcmp(pname, sem_cur-&gt;name);</span><br><span class="line">            sem_pre&#x3D;sem_cur, sem_cur&#x3D;sem_cur-&gt;next);</span><br><span class="line"></span><br><span class="line">    if(!sem_cur)</span><br><span class="line">    &#123;</span><br><span class="line">        printk(&quot;semaphore %s no found. created a new one. \n&quot;, pname);</span><br><span class="line">        sem_cur &#x3D; (sem_t *)malloc(sizeof(sem_t));</span><br><span class="line">        strcpy(sem_cur-&gt;name, pname);</span><br><span class="line">        sem_cur-&gt;value &#x3D; value;</span><br><span class="line">        sem_cur-&gt;next &#x3D; NULL;</span><br><span class="line">        sem_pre-&gt;next &#x3D; sem_cur;</span><br><span class="line">    &#125;</span><br><span class="line">    printk(&quot;pid %d opens semaphore %s(value %u) OK. \n&quot;, current-&gt;pid, pname, sem_cur-&gt;value);</span><br><span class="line">    return sem_cur;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int sys_sem_wait(sem_t *sem)</span><br><span class="line">&#123;</span><br><span class="line">    cli();    </span><br><span class="line">    while(sem-&gt;value&lt;&#x3D;0)</span><br><span class="line">        sleep_on(&amp;(sem-&gt;s_wait));</span><br><span class="line">    sem-&gt;value--;</span><br><span class="line">    sti();    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int sys_sem_post(sem_t *sem)</span><br><span class="line">&#123;</span><br><span class="line">    sem-&gt;value++;</span><br><span class="line">    if(sem-&gt;s_wait)</span><br><span class="line">    &#123;</span><br><span class="line">        wake_up(&amp;(sem-&gt;s_wait));</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    return -1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int sys_sem_unlink(const char *name)</span><br><span class="line">&#123;</span><br><span class="line">    sem_t *sem_cur, *sem_pre;</span><br><span class="line">    char pname[SEM_NAME_LEN];</span><br><span class="line">    int i;</span><br><span class="line"></span><br><span class="line">    str_u2k(name, pname, SEM_NAME_LEN);</span><br><span class="line"></span><br><span class="line">    for(sem_pre&#x3D;sem_head, sem_cur&#x3D;sem_head-&gt;next; sem_cur &amp;&amp; strcmp(pname, sem_cur-&gt;name);</span><br><span class="line">            sem_pre&#x3D;sem_cur, sem_cur&#x3D;sem_cur-&gt;next);</span><br><span class="line"></span><br><span class="line">    if(!sem_cur)</span><br><span class="line">        return -1;</span><br><span class="line"></span><br><span class="line">    sem_pre-&gt;next &#x3D; sem_cur-&gt;next;</span><br><span class="line">    free(sem_cur);</span><br><span class="line">    printk(&quot;unlink semaphore %s OK. \n&quot;, pname);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加系统调用</p>
+<ul>
+<li><p><code>linux/sys.h</code></p>
+<p><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191124180710797.png" alt="image-20191124180710797"></p>
+</li>
+<li><p><code>include\unistd.h</code> 记得替换一下linux-0.11中的<code>usr\include</code></p>
+<p><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191124180800476.png" alt="image-20191124180800476"></p>
+<p><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191124182740198.png" alt="image-20191124182740198"></p>
+<p><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191124180836370.png" alt="image-20191124180836370"></p>
+</li>
+<li><p><code>kernel\system_call.s</code></p>
+<p><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191124181003514.png" alt="image-20191124181003514"></p>
+</li>
+<li><p><code>kernel\Makefile</code></p>
+<p><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191124181404728.png" alt="image-20191124181404728"></p>
+<p><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191124181419825.png" alt="image-20191124181419825"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h3><ul>
+<li><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191124192730803.png" alt="image-20191124192730803"></li>
+<li><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191124192506590.png" alt="image-20191124192506590"></li>
+</ul>
+<h3 id="实验问题"><a href="#实验问题" class="headerlink" title="实验问题"></a>实验问题</h3><p>在 <code>pc.c</code> 中去掉所有与信号量有关的代码，再运行程序，执行效果有变化吗？为什么会这样？ </p>
+<p><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191124193535881.png" alt="image-20191124193535881"></p>
+<p>实验的设计者在第一次编写生产者——消费者程序的时候，是这么做的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">Producer()</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F; 生产一个产品 item;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 空闲缓存资源</span><br><span class="line">    P(Empty);  </span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 互斥信号量</span><br><span class="line">    P(Mutex);  </span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 将item放到空闲缓存中;</span><br><span class="line">    V(Mutex);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 产品资源</span><br><span class="line">    V(Full);  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Consumer()</span><br><span class="line">&#123;</span><br><span class="line">    P(Full);  </span><br><span class="line">    P(Mutex);  </span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;从缓存区取出一个赋值给item;</span><br><span class="line">    V(Mutex);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 消费产品item;</span><br><span class="line">    V(Empty);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样可行吗？如果可行，那么它和标准解法在执行效果上会有什么不同？如果不可行，那么它有什么问题使它不可行？</p>
+<p>不可行。</p>
+<p>假设Producer刚生产完一件商品，释放了Mutex，Mutex为1，此时缓存区满了，Empty为0；然后OS执行调度，若被Producer拿到CPU，它拿到Mutex，使Mutex为0，而Empty为0，Producer让出CPU，等待Consumer执行V(Empty)；而Consumer拿到CPU后，却要等待Producer执行V(Mutex),造成死锁。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ch">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/28/OSLab5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Juan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/28/OSLab5/" class="post-title-link" itemprop="url">OSLab5</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+
+              <time title="Erstellt: 2020-01-28 19:10:11" itemprop="dateCreated datePublished" datetime="2020-01-28T19:10:11+08:00">2020-01-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2019-11-17 23:47:55" itemprop="dateModified" datetime="2019-11-17T23:47:55+08:00">2019-11-17</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="OSLab5"><a href="#OSLab5" class="headerlink" title="OSLab5"></a>OSLab5</h1><p>17373031 张欣玥 172114</p>
+<h2 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a>实验内容</h2><p>本次实践项目就是将 Linux 0.11 中采用的 TSS 切换部分去掉，取而代之的是基于堆栈的切换程序。具体的说，就是将 Linux 0.11 中的 <code>switch_to</code> 实现去掉，写成一段基于堆栈切换的代码。</p>
+<p>本次实验包括如下内容：</p>
+<ul>
+<li>编写汇编程序 <code>switch_to</code>：</li>
+<li>完成主体框架；</li>
+<li>在主体框架下依次完成 PCB 切换、内核栈切换、LDT 切换等；</li>
+<li>修改 <code>fork()</code>，由于是基于内核栈的切换，所以进程需要创建出能完成内核栈切换的样子。</li>
+<li>修改 PCB，即 <code>task_struct</code> 结构，增加相应的内容域，同时处理由于修改了 task_struct 所造成的影响。</li>
+<li>用修改后的 Linux 0.11 仍然可以启动、可以正常使用。</li>
+<li>（选做）分析实验 3 的日志体会修改前后系统运行的差别。</li>
+</ul>
+<p>实验任务</p>
+<ul>
+<li>（1）重写 <code>switch_to</code>；</li>
+<li>（2）将重写的 <code>switch_to</code> 和 <code>schedule()</code> 函数接在一起；</li>
+<li>（3）修改现在的 <code>fork()</code>。</li>
+<li></li>
+</ul>
+<h2 id="实验相关"><a href="#实验相关" class="headerlink" title="实验相关"></a>实验相关</h2><ul>
+<li>kernel/system_call.s</li>
+<li>fork.c</li>
+<li>sched.h 和 sched.c</li>
+</ul>
+<h2 id="实验过程"><a href="#实验过程" class="headerlink" title="实验过程"></a>实验过程</h2><h3 id="1-修改schedule"><a href="#1-修改schedule" class="headerlink" title="1.修改schedule()"></a>1.修改<code>schedule()</code></h3><ul>
+<li>添加新的switch_to()还有*tss</li>
+</ul>
+<p><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191117062014925.png" alt="image-20191117062014925"></p>
+<ul>
+<li>添加pnext声明</li>
+</ul>
+<p><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191117062148886.png" alt="image-20191117062148886"></p>
+<ul>
+<li>调用新的switch_to</li>
+</ul>
+<p><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191117062229074.png" alt="image-20191117062229074"></p>
+<h3 id="2-实现switch-to"><a href="#2-实现switch-to" class="headerlink" title="2.实现switch_to"></a>2.实现<code>switch_to</code></h3><ul>
+<li><p>切换PCB</p>
+<ul>
+<li><pre><code class="assembly">movl tss,%ecx
+addl $4096,%ebx
+movl %ebx,ESP0(%ecx)
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- TSS中的内核栈指针重写</span><br><span class="line"></span><br><span class="line">  - &#96;&#96;&#96;assembly</span><br><span class="line">    movl tss,%ecx</span><br><span class="line">    addl $4096,%ebx</span><br><span class="line">    movl %ebx,ESP0(%ecx)</span><br></pre></td></tr></table></figure></code></pre>
+</li>
+</ul>
+</li>
+<li><p>内核栈的切换</p>
+<ul>
+<li><pre><code class="assembly">movl %esp,KERNEL_STACK(%eax)
+! 再取一下 ebx，因为前面修改过 ebx 的值
+movl 8(%ebp),%ebx
+movl KERNEL_STACK(%ebx),%esp
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">    </span><br><span class="line">  - &#96;include&#x2F;linux&#x2F;sched.h&#96;</span><br><span class="line"></span><br><span class="line">    增加kernelstack</span><br><span class="line"></span><br><span class="line">    ![image-20191117062450944](&#x2F;home&#x2F;juanjuan&#x2F;.config&#x2F;Typora&#x2F;typora-user-images&#x2F;image-20191117062450944.png)</span><br><span class="line"></span><br><span class="line">    *在 PCB 的第四项中增加关于内核栈栈指针的初始化*</span><br><span class="line"></span><br><span class="line">    ![image-20191117062509838](&#x2F;home&#x2F;juanjuan&#x2F;.config&#x2F;Typora&#x2F;typora-user-images&#x2F;image-20191117062509838.png)</span><br><span class="line">    </span><br><span class="line">    注释掉原来的switch_to</span><br><span class="line">    </span><br><span class="line">    ![image-20191117062407063](&#x2F;home&#x2F;juanjuan&#x2F;.config&#x2F;Typora&#x2F;typora-user-images&#x2F;image-20191117062407063.png)</span><br><span class="line">    </span><br><span class="line">    硬编码修改</span><br><span class="line">    </span><br><span class="line">    ![image-20191117062319973](&#x2F;home&#x2F;juanjuan&#x2F;.config&#x2F;Typora&#x2F;typora-user-images&#x2F;image-20191117062319973.png)</span><br><span class="line"></span><br><span class="line">- LDT的切换</span><br><span class="line"></span><br><span class="line">  &#96;&#96;&#96;assembly</span><br><span class="line">  movl 12(%ebp),%ecx</span><br><span class="line">  lldt %cx</span><br></pre></td></tr></table></figure></code></pre>
+</li>
+</ul>
+</li>
+<li><p>PC指针的切换</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ret</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>增加全局声明</p>
+<p><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191117062834159.png" alt="image-20191117062834159"></p>
+</li>
+<li><p>完整代码</p>
+<p><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191117062631119.png" alt="image-20191117062631119"></p>
+<p><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191117062648030.png" alt="image-20191117062648030"></p>
+</li>
+</ul>
+<h3 id="3-修改fork"><a href="#3-修改fork" class="headerlink" title="3.修改fork"></a>3.修改fork</h3><ul>
+<li><p>注释掉原来的tss部分</p>
+<p><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191117064001080.png" alt="image-20191117064001080"></p>
+</li>
+<li><p>对 krnstack 进行初始化</p>
+<p><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191117063857695.png" alt="image-20191117063857695"></p>
+</li>
+<li><p>声明一下</p>
+<p><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191117063940726.png" alt="image-20191117063940726"></p>
+</li>
+</ul>
+<h3 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h3><p><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191117061811705.png" alt="image-20191117061811705"></p>
+<p>可正常运行</p>
+<h2 id="思考题"><a href="#思考题" class="headerlink" title="思考题"></a>思考题</h2><h4 id="问题-1"><a href="#问题-1" class="headerlink" title="问题 1"></a>问题 1</h4><p>针对下面的代码片段：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#TSS中的内核栈指针重写</span><br><span class="line">movl tss,%ecx</span><br><span class="line">addl $4096,%ebx</span><br><span class="line">movl %ebx,ESP0(%ecx)</span><br></pre></td></tr></table></figure>
+
+<p>回答问题：</p>
+<p>（1）为什么要加 4096；</p>
+<p>ebx寄存起指向下一个进程的PCB，加ebx+4096 即为下一个进程分配 4KB 的空间。</p>
+<p>（2）为什么没有设置 tss 中的 ss0。</p>
+<p>因为不适用tss切换进程的话，所有进程都共享同一个tss</p>
+<h4 id="问题-2"><a href="#问题-2" class="headerlink" title="问题 2"></a>问题 2</h4><p>针对代码片段：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">*(--krnstack) &#x3D; ebp;</span><br><span class="line">*(--krnstack) &#x3D; ecx;</span><br><span class="line">*(--krnstack) &#x3D; ebx;</span><br><span class="line">*(--krnstack) &#x3D; 0;</span><br></pre></td></tr></table></figure>
+
+<p>回答问题：</p>
+<p>（1）子进程第一次执行时，eax=？为什么要等于这个数？哪里的工作让 eax 等于这样一个数？</p>
+<p>eax= 0，因为fork()函数的子进程的返回值是0，<code>*(--krnstack) = 0</code>。</p>
+<p>（2）这段代码中的 ebx 和 ecx 来自哪里，是什么含义，为什么要通过这些代码将其写到子进程的内核栈中？</p>
+<p>保存的父进程的ebx和ecx，保证子进程恢复时和父进程状态相同。</p>
+<p>（3）这段代码中的 ebp 来自哪里，是什么含义，为什么要做这样的设置？可以不设置吗？为什么？</p>
+<p>保存的的父进程的用户栈指针。</p>
+<h4 id="问题-3"><a href="#问题-3" class="headerlink" title="问题 3"></a>问题 3</h4><p>为什么要在切换完 LDT 之后要重新设置 fs=0x17？而且为什么重设操作要出现在切换完 LDT 之后，出现在 LDT 之前又会怎么样？</p>
+<p>切换LDT会改变用户地址，所以需要重新设置FS。之前的话可能会导致寻址错误。</p>
+<h2 id="切换图示"><a href="#切换图示" class="headerlink" title="切换图示"></a>切换图示</h2><p><img src="/home/juanjuan/%E4%B8%8B%E8%BD%BD/1349946323.jpg" alt="1349946323"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ch">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/28/OSLab4-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Juan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/28/OSLab4-1/" class="post-title-link" itemprop="url">OSLab4-1</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+
+              <time title="Erstellt: 2020-01-28 19:10:11" itemprop="dateCreated datePublished" datetime="2020-01-28T19:10:11+08:00">2020-01-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2019-11-03 22:51:40" itemprop="dateModified" datetime="2019-11-03T22:51:40+08:00">2019-11-03</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="OSLab4"><a href="#OSLab4" class="headerlink" title="OSLab4"></a>OSLab4</h1><p>17373031 张欣玥 172114</p>
+<h2 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a>实验内容</h2><ul>
+<li>基于模板 <code>process.c</code>编写多进程的样本程序，实现如下功能：<ul>
+<li>所有子进程都并行运行，每个子进程的实际运行时间一般不超过 30 秒；</li>
+<li>父进程向标准输出打印所有子进程的 id，并在所有子进程都退出后才退出；</li>
+</ul>
+</li>
+<li>在<code>Linux0.11</code>上实现进程运行轨迹的跟踪。<ul>
+<li>基本任务是在内核中维护一个日志文件 <code>/var/process.log</code>，把从操作系统启动到系统关机过程中所有进程的运行轨迹都记录在这一 log 文件中。</li>
+</ul>
+</li>
+<li>在修改过的 0.11 上运行样本程序，通过分析 log 文件，统计该程序建立的所有进程的等待时间、完成时间（周转时间）和运行时间，然后计算平均等待时间，平均完成时间和吞吐量。可以自己编写统计程序，也可以使用 python 脚本程序—— <code>stat_log.py</code>（在 <code>/home/teacher/</code> 目录下） ——进行统计。</li>
+<li>修改 0.11 进程调度的时间片，然后再运行同样的样本程序，统计同样的时间数据，和原有的情况对比，体会不同时间片带来的差异。</li>
+</ul>
+<p><code>/var/process.log</code> 文件的格式必须为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pid    X    time</span><br></pre></td></tr></table></figure>
+
+<p>其中：</p>
+<ul>
+<li>pid 是进程的 ID；</li>
+<li>X 可以是 N、J、R、W 和 E 中的任意一个，分别表示进程新建(N)、进入就绪态(J)、进入运行态(R)、进入阻塞态(W) 和退出(E)；</li>
+<li>time 表示 X 发生的时间。这个时间不是物理时间，而是系统的滴答时间(tick)；</li>
+</ul>
+<p>三个字段之间用制表符分隔。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">12    N    1056</span><br><span class="line">12    J    1057</span><br><span class="line">4    W    1057</span><br><span class="line">12    R    1057</span><br><span class="line">13    N    1058</span><br><span class="line">13    J    1059</span><br><span class="line">14    N    1059</span><br><span class="line">14    J    1060</span><br><span class="line">15    N    1060</span><br><span class="line">15    J    1061</span><br><span class="line">12    W    1061</span><br><span class="line">15    R    1061</span><br><span class="line">15    J    1076</span><br><span class="line">14    R    1076</span><br><span class="line">14    E    1076</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="实验问题"><a href="#实验问题" class="headerlink" title="实验问题"></a>实验问题</h2><ul>
+<li>结合自己的体会，谈谈从程序设计者的角度看，单进程编程和多进程编程最大的区别是什么？</li>
+<li>你是如何修改时间片的？仅针对样本程序建立的进程，在修改时间片前后，log 文件的统计结果（不包括 Graphic）都是什么样？结合你的修改分析一下为什么会这样变化，或者为什么没变化？</li>
+</ul>
+<h2 id="实验说明"><a href="#实验说明" class="headerlink" title="实验说明"></a>实验说明</h2><h3 id="涉及文件"><a href="#涉及文件" class="headerlink" title="涉及文件"></a>涉及文件</h3><ul>
+<li>init/main.c</li>
+<li>kernel/fork.c</li>
+<li>kernel/sched.c</li>
+<li>kernel/exit.c</li>
+</ul>
+<h2 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h2><h3 id="1-编写process-c"><a href="#1-编写process-c" class="headerlink" title="1. 编写process.c"></a>1. 编写<code>process.c</code></h3><ul>
+<li><p>用 <code>fork()</code> 建立若干个同时运行的子进程，父进程等待所有子进程退出后才退出</p>
+</li>
+<li><p>每个子进程按照你的意愿做不同或相同的 <code>cpuio_bound()</code></p>
+</li>
+<li><p>cpuio_bound()</p>
+<ul>
+<li><pre><code>/*
+ * 此函数按照参数占用CPU和I/O时间
+ * last: 函数实际占用CPU和I/O的总时间，不含在就绪队列中的时间，&gt;=0是必须的
+ * cpu_time: 一次连续占用CPU的时间，&gt;=0是必须的
+ * io_time: 一次I/O消耗的时间，&gt;=0是必须的
+ * 如果last &gt; cpu_time + io_time，则往复多次占用CPU和I/O，直到总运行时间超过last为止
+ * 所有时间的单位为秒
+ */
+cpuio_bound(int last, int cpu_time, int io_time);
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">-</span><br></pre></td></tr></table></figure>
+// 比如一个进程如果要占用10秒的CPU时间，它可以调用：
+cpuio_bound(10, 1, 0); 
+// 只要cpu_time&gt;0，io_time=0，效果相同
+
+// 以I/O为主要任务：
+cpuio_bound(10, 0, 1);  
+// 只要cpu_time=0，io_time&gt;0，效果相同
+
+// CPU和I/O各1秒钟轮回：
+cpuio_bound(10, 1, 1);
+
+// 较多的I/O，较少的CPU：
+// I/O时间是CPU时间的9倍
+cpuio_bound(10, 1, 9);  
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- &#96;wait()&#96; 系统调用可以让父进程等待子进程的退出</span><br><span class="line"></span><br><span class="line">- ![image-20191101160742959](&#x2F;home&#x2F;juanjuan&#x2F;.config&#x2F;Typora&#x2F;typora-user-images&#x2F;image-20191101160742959.png)</span><br><span class="line"></span><br><span class="line">- ![image-20191101160826742](&#x2F;home&#x2F;juanjuan&#x2F;.config&#x2F;Typora&#x2F;typora-user-images&#x2F;image-20191101160826742.png)</span><br><span class="line"></span><br><span class="line">- ![image-20191101160931847](&#x2F;home&#x2F;juanjuan&#x2F;.config&#x2F;Typora&#x2F;typora-user-images&#x2F;image-20191101160931847.png)</span><br><span class="line"></span><br><span class="line">### 2.修改&#96;init&#x2F;main.c&#96;</span><br><span class="line"></span><br><span class="line">- 文件描述符 0、1 和 2，它们分别就是 stdin、stdout 和 stderr。这三者的值是系统标准（Windows 也是如此），不可改变。</span><br><span class="line">- 可以把 log 文件的描述符关联到 3。</span><br><span class="line"></span><br><span class="line">- ![image-20191101164034509](&#x2F;home&#x2F;juanjuan&#x2F;.config&#x2F;Typora&#x2F;typora-user-images&#x2F;image-20191101164034509.png)</span><br><span class="line"></span><br><span class="line">### 3.编写可在内核调用的 &#96;write()&#96;-- fprintk()</span><br><span class="line"></span><br><span class="line">&gt;kernel&#x2F;printk.c</span><br><span class="line"></span><br><span class="line">- 第一个参数是文件描述符</span><br><span class="line"></span><br><span class="line">-</span><br></pre></td></tr></table></figure>
+// 向stdout打印正在运行的进程的ID
+fprintk(1, &quot;The ID of running process is %ld&quot;, current-&gt;pid); 
+</code></pre></li>
+</ul>
+<p>// 向log文件输出跟踪进程运行轨迹<br>fprintk(3, “%ld\t%c\t%ld\n”, current-&gt;pid, ‘R’, jiffies); </p>
+<pre><code></code></pre></li>
+<li><p><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191101164655486.png" alt="image-20191101164655486"></p>
+</li>
+</ul>
+<h3 id="4-添加状态切换点"><a href="#4-添加状态切换点" class="headerlink" title="4.添加状态切换点"></a>4.添加状态切换点</h3><p>X 可以是 N、J、R、W 和 E 中的任意一个，分别表示进程新建(N)、进入就绪态(J)、进入运行态(R)、进入阻塞态(W) 和退出(E)；</p>
+<blockquote>
+<p>就绪与运行间的状态转移是通过 <code>schedule()</code>（它亦是调度算法所在）完成的；</p>
+<p>运行到睡眠依靠的是 <code>sleep_on()</code> 和 <code>interruptible_sleep_on()</code></p>
+<p>进程主动睡觉的系统调用 <code>sys_pause()</code> 和 <code>sys_waitpid()</code></p>
+<p>睡眠到就绪的转移依靠的是 <code>wake_up()</code></p>
+</blockquote>
+<p>所以只要在这些函数的适当位置插入适当的处理语句就能完成进程运行轨迹的全面跟踪了</p>
+<ul>
+<li><p>kernel/fork.c            <code>copy_process()</code></p>
+</li>
+<li><p>kernel/sched.c        <code>schedule()</code>  <code>sleep_on()</code>  <code>interruptible_sleep_on()</code> <code>wake_up()</code> <code>sys_pause()</code></p>
+</li>
+<li><p>kernel/exit.c             <code>sys_waitpid()</code> <code>do_exit()</code></p>
+</li>
+</ul>
+<ol>
+<li><p>fork.c</p>
+<ul>
+<li><p>copy_process()</p>
+</li>
+<li><p>输出两种状态，分别是“N（新建）”和“J（就绪）”。</p>
+</li>
+<li><p><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191102141605232.png" alt="image-20191102141605232"></p>
+</li>
+<li><p><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191102141646685.png" alt="image-20191102141646685"></p>
+</li>
+</ul>
+</li>
+<li><p>sched.c</p>
+<ul>
+<li><p>sleep_on()    输出状态”W”</p>
+<p><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191102142619113.png" alt="image-20191102142619113"></p>
+</li>
+<li><p>interruptible_sleep_on()    输出状态”W”</p>
+<p><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191102142838186.png" alt="image-20191102142838186"></p>
+</li>
+<li><p>schedule()    输出状态”J”和”R”</p>
+<p><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191102144824630.png" alt="image-20191102144824630"></p>
+<p><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191102145835275.png" alt="image-20191102145835275"></p>
+<blockquote>
+<p>如果任务next是当前进程,则不切换,直接结束schedule(),否则切换到任务next执行</p>
+</blockquote>
+</li>
+<li><p>wake_up()    输出状态”J”</p>
+<p><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191102143603054.png" alt="image-20191102143603054"></p>
+</li>
+<li><p>sys_pause()    输出状态”W”</p>
+<p><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191102144649250.png" alt="image-20191102144649250"></p>
+</li>
+</ul>
+</li>
+<li><p>exit.c</p>
+<ul>
+<li><p>sys_waitpid()</p>
+<p><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191102152244737.png" alt="image-20191102152244737"></p>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="运行截图"><a href="#运行截图" class="headerlink" title="运行截图"></a>运行截图</h4><p><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191102152048186.png" alt="image-20191102152048186"></p>
+<h3 id="5-数据统计"><a href="#5-数据统计" class="headerlink" title="5.数据统计"></a>5.数据统计</h3><ul>
+<li>给 <code>stat_log.py</code> 加上执行权限（使用的命令为 <code>chmod +x stat_log.py</code>）就可以直接运行它。</li>
+<li>必须命令行加参数执行<ul>
+<li>运行 <code>./stat_log.py process.log 0 1 2 3 4 5 -g</code>（只统计 PID 为 0、1、2、3、4 和 5 的进程）的输出示例：</li>
+<li>可以用 <code>command arguments | more</code> （<code>command arguments</code> 需要替换为脚本执行的命令）的方式运行，结果会一屏一屏地显示。</li>
+</ul>
+</li>
+<li><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191102153618541.png" alt="image-20191102153618541"></li>
+<li><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191103194643269.png" alt="image-20191103194643269"></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ch">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/28/oslab4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Juan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/28/oslab4/" class="post-title-link" itemprop="url">oslab4</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+
+              <time title="Erstellt: 2020-01-28 19:10:11" itemprop="dateCreated datePublished" datetime="2020-01-28T19:10:11+08:00">2020-01-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2019-10-30 02:43:36" itemprop="dateModified" datetime="2019-10-30T02:43:36+08:00">2019-10-30</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ch">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/28/oslab1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Juan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/28/oslab1/" class="post-title-link" itemprop="url">oslab1</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+
+              <time title="Erstellt: 2020-01-28 19:10:11" itemprop="dateCreated datePublished" datetime="2020-01-28T19:10:11+08:00">2020-01-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2019-10-30 12:04:54" itemprop="dateModified" datetime="2019-10-30T12:04:54+08:00">2019-10-30</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ol>
+<li><p>安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;DeathKing&#x2F;hit-oslab.git ~&#x2F;hit-oslab</span><br><span class="line"></span><br><span class="line">cd ~&#x2F;hit-oslab</span><br><span class="line"></span><br><span class="line">.&#x2F;setup.sh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将内核替换为<code>https://github.com/hoverwinter/HIT-OSLab</code>中的文件</p>
+</li>
+<li><p><code>sudo apt-get install libsm6:i386</code></p>
+</li>
+<li><p><code>sudo apt-get install libx11-6:i386</code></p>
+</li>
+<li><p><code>sudo apt-get install libxpm4:i386</code></p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ch">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/28/OSLab9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Juan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/28/OSLab9/" class="post-title-link" itemprop="url">OSLab9</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+
+              <time title="Erstellt: 2020-01-28 19:10:11" itemprop="dateCreated datePublished" datetime="2020-01-28T19:10:11+08:00">2020-01-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2020-01-05 23:01:05" itemprop="dateModified" datetime="2020-01-05T23:01:05+08:00">2020-01-05</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="OSLab9"><a href="#OSLab9" class="headerlink" title="OSLab9"></a>OSLab9</h1><p>17373031 张欣玥 172114</p>
+<h3 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a>实验内容</h3><h4 id="1、增加文件类型proc"><a href="#1、增加文件类型proc" class="headerlink" title="1、增加文件类型proc"></a>1、增加文件类型proc</h4><p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200105222812.png" alt=""></p>
+<h4 id="2、让mknod（）支持新的文件类型"><a href="#2、让mknod（）支持新的文件类型" class="headerlink" title="2、让mknod（）支持新的文件类型"></a>2、让mknod（）支持新的文件类型</h4><p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200105223024.png" alt=""></p>
+<p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200105223905.png" alt=""></p>
+<p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200105225308.png" alt=""></p>
+<h4 id="3、让proc文件可读"><a href="#3、让proc文件可读" class="headerlink" title="3、让proc文件可读"></a>3、让proc文件可读</h4><p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200105223303.png" alt=""></p>
+<p>显然，要在这里一群 if 的排比中，加上 <code>S_IFPROC()</code> 的分支，进入对 proc 文件的处理函数。需要传给处理函数的参数包括：</p>
+<ul>
+<li><code>inode-&gt;i_zone[0]</code>，这就是 <code>mknod()</code> 时指定的 <code>dev</code> ——设备编号</li>
+<li><code>buf</code>，指向用户空间，就是 <code>read()</code> 的第二个参数，用来接收数据</li>
+<li><code>count</code>，就是 <code>read()</code> 的第三个参数，说明 <code>buf</code> 指向的缓冲区大小</li>
+<li><code>&amp;file-&gt;f_pos</code>，<code>f_pos</code> 是上一次读文件结束时“文件位置指针”的指向。这里必须传指针，因为处理函数需要根据传给 <code>buf</code> 的数据量修改 <code>f_pos</code> 的值。</li>
+</ul>
+<h4 id="4、proc文件的处理函数"><a href="#4、proc文件的处理函数" class="headerlink" title="4、proc文件的处理函数"></a>4、proc文件的处理函数</h4><p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200105225400.png" alt=""></p>
+<h4 id="5、实现sprintf（）函数"><a href="#5、实现sprintf（）函数" class="headerlink" title="5、实现sprintf（）函数"></a>5、实现sprintf（）函数</h4><p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200105224227.png" alt=""></p>
+<h4 id="6、cat命令的实现"><a href="#6、cat命令的实现" class="headerlink" title="6、cat命令的实现"></a>6、cat命令的实现</h4><h4 id="7、ps-info的内容"><a href="#7、ps-info的内容" class="headerlink" title="7、ps info的内容"></a>7、ps info的内容</h4><p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200105225423.png" alt=""></p>
+<p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200105225520.png" alt=""></p>
+<h4 id="8、hdinfo的内容"><a href="#8、hdinfo的内容" class="headerlink" title="8、hdinfo的内容"></a>8、hdinfo的内容</h4><p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200105225446.png" alt=""></p>
+<p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200105225503.png" alt=""></p>
+<p>*改makefile</p>
+<p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200105225844.png" alt=""></p>
+<p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200105225905.png" alt=""></p>
+<h3 id="实验报告"><a href="#实验报告" class="headerlink" title="实验报告"></a>实验报告</h3><ul>
+<li>如果要求你在 <code>psinfo</code> 之外再实现另一个结点，具体内容自选，那么你会实现一个给出什么信息的结点？为什么？</li>
+<li>CPU信息。因为很重要.jpg</li>
+<li>一次read()未必能读出所有的数据，需要继续read()，直到把数据读空为止。而数次read()之间，进程的状态可能会发生变化。你认为后几次read()传给用户的数据，应该是变化后的，还是变化前的？<ul>
+<li>如果是变化后的，那么用户得到的数据衔接部分是否会有混乱？如何防止混乱？</li>
+<li>如果是变化前的，那么该在什么样的情况下更新 <code>psinfo</code> 的内容？</li>
+</ul>
+</li>
+</ul>
+<p>会混乱。如果要防止混乱发生，可以考虑将取到的进程信息保存在硬盘的一个文件中，读取时只要该文件存在，就从文件中直接读取，而不是每次read都重新生成进程信息，而一次读动作完成后就将硬盘上的文件删除。这样下次再时再次生成文件。这样可以保证传递的数据是一致的。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ch">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/28/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Juan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/28/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+
+              <time title="Erstellt: 2020-01-28 19:07:44" itemprop="dateCreated datePublished" datetime="2020-01-28T19:07:44+08:00">2020-01-28</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+  </div>
+
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Inhaltsverzeichnis
+        </li>
+        <li class="sidebar-nav-overview">
+          Übersicht
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Juan</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">Artikel</span>
+        </a>
+      </div>
+  </nav>
 </div>
 
 
-        </div>
-        <footer id="footer" class="footer">
-    <div class="copyright">
-        <span>© Juan | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
-    </div>
-</footer>
+
+      </div>
 
     </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">京ICP备19041410号-1 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Juan</span>
+</div>
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Design – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
 </body>
 </html>
