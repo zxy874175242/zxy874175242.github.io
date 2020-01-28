@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="ch">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="OSLab517373031 张欣玥 172114 实验内容本次实践项目就是将 Linux 0.11 中采用的 TSS 切换部分去掉，取而代之的是基于堆栈的切换程序。具体的说，就是将 Linux 0.11 中的 switch_to 实现去掉，写成一段基于堆栈切换的代码。 本次实验包括如下内容：  编写汇编程序 switch_to： 完成主体框架； 在主体框架下依次完成 PCB 切换、内核栈切换、L">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OSLab5">
+<meta property="og:url" content="http://yoursite.com/2020/01/28/OSLab5/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="OSLab517373031 张欣玥 172114 实验内容本次实践项目就是将 Linux 0.11 中采用的 TSS 切换部分去掉，取而代之的是基于堆栈的切换程序。具体的说，就是将 Linux 0.11 中的 switch_to 实现去掉，写成一段基于堆栈切换的代码。 本次实验包括如下内容：  编写汇编程序 switch_to： 完成主体框架； 在主体框架下依次完成 PCB 切换、内核栈切换、L">
+<meta property="og:locale" content="ch">
+<meta property="og:image" content="http://yoursite.com/home/juanjuan/.config/Typora/typora-user-images/image-20191117062014925.png">
+<meta property="og:image" content="http://yoursite.com/home/juanjuan/.config/Typora/typora-user-images/image-20191117062148886.png">
+<meta property="og:image" content="http://yoursite.com/home/juanjuan/.config/Typora/typora-user-images/image-20191117062229074.png">
+<meta property="og:image" content="http://yoursite.com/home/juanjuan/.config/Typora/typora-user-images/image-20191117062834159.png">
+<meta property="og:image" content="http://yoursite.com/home/juanjuan/.config/Typora/typora-user-images/image-20191117062631119.png">
+<meta property="og:image" content="http://yoursite.com/home/juanjuan/.config/Typora/typora-user-images/image-20191117062648030.png">
+<meta property="og:image" content="http://yoursite.com/home/juanjuan/.config/Typora/typora-user-images/image-20191117064001080.png">
+<meta property="og:image" content="http://yoursite.com/home/juanjuan/.config/Typora/typora-user-images/image-20191117063857695.png">
+<meta property="og:image" content="http://yoursite.com/home/juanjuan/.config/Typora/typora-user-images/image-20191117063940726.png">
+<meta property="og:image" content="http://yoursite.com/home/juanjuan/.config/Typora/typora-user-images/image-20191117061811705.png">
+<meta property="og:image" content="http://yoursite.com/home/juanjuan/%E4%B8%8B%E8%BD%BD/1349946323.jpg">
+<meta property="article:published_time" content="2020-01-28T11:10:11.885Z">
+<meta property="article:modified_time" content="2019-11-17T15:47:55.000Z">
+<meta property="article:author" content="Juan">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/home/juanjuan/.config/Typora/typora-user-images/image-20191117062014925.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/01/28/OSLab5/"/>
+
+
+
+
+
+  <title>OSLab5 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="ch">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Juan share</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/28/OSLab5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Juan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">OSLab5</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-28T19:10:11+08:00">
+                2020-01-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="OSLab5"><a href="#OSLab5" class="headerlink" title="OSLab5"></a>OSLab5</h1><p>17373031 张欣玥 172114</p>
+<h2 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a>实验内容</h2><p>本次实践项目就是将 Linux 0.11 中采用的 TSS 切换部分去掉，取而代之的是基于堆栈的切换程序。具体的说，就是将 Linux 0.11 中的 <code>switch_to</code> 实现去掉，写成一段基于堆栈切换的代码。</p>
+<p>本次实验包括如下内容：</p>
+<ul>
+<li>编写汇编程序 <code>switch_to</code>：</li>
+<li>完成主体框架；</li>
+<li>在主体框架下依次完成 PCB 切换、内核栈切换、LDT 切换等；</li>
+<li>修改 <code>fork()</code>，由于是基于内核栈的切换，所以进程需要创建出能完成内核栈切换的样子。</li>
+<li>修改 PCB，即 <code>task_struct</code> 结构，增加相应的内容域，同时处理由于修改了 task_struct 所造成的影响。</li>
+<li>用修改后的 Linux 0.11 仍然可以启动、可以正常使用。</li>
+<li>（选做）分析实验 3 的日志体会修改前后系统运行的差别。</li>
+</ul>
+<p>实验任务</p>
+<ul>
+<li>（1）重写 <code>switch_to</code>；</li>
+<li>（2）将重写的 <code>switch_to</code> 和 <code>schedule()</code> 函数接在一起；</li>
+<li>（3）修改现在的 <code>fork()</code>。</li>
+<li></li>
+</ul>
+<h2 id="实验相关"><a href="#实验相关" class="headerlink" title="实验相关"></a>实验相关</h2><ul>
+<li>kernel/system_call.s</li>
+<li>fork.c</li>
+<li>sched.h 和 sched.c</li>
+</ul>
+<h2 id="实验过程"><a href="#实验过程" class="headerlink" title="实验过程"></a>实验过程</h2><h3 id="1-修改schedule"><a href="#1-修改schedule" class="headerlink" title="1.修改schedule()"></a>1.修改<code>schedule()</code></h3><ul>
+<li>添加新的switch_to()还有*tss</li>
+</ul>
+<p><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191117062014925.png" alt="image-20191117062014925"></p>
+<ul>
+<li>添加pnext声明</li>
+</ul>
+<p><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191117062148886.png" alt="image-20191117062148886"></p>
+<ul>
+<li>调用新的switch_to</li>
+</ul>
+<p><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191117062229074.png" alt="image-20191117062229074"></p>
+<h3 id="2-实现switch-to"><a href="#2-实现switch-to" class="headerlink" title="2.实现switch_to"></a>2.实现<code>switch_to</code></h3><ul>
+<li><p>切换PCB</p>
+<ul>
+<li><pre><code class="assembly">movl tss,%ecx
+addl $4096,%ebx
+movl %ebx,ESP0(%ecx)
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- TSS中的内核栈指针重写</span><br><span class="line"></span><br><span class="line">  - &#96;&#96;&#96;assembly</span><br><span class="line">    movl tss,%ecx</span><br><span class="line">    addl $4096,%ebx</span><br><span class="line">    movl %ebx,ESP0(%ecx)</span><br></pre></td></tr></table></figure></code></pre>
+</li>
+</ul>
+</li>
+<li><p>内核栈的切换</p>
+<ul>
+<li><pre><code class="assembly">movl %esp,KERNEL_STACK(%eax)
+! 再取一下 ebx，因为前面修改过 ebx 的值
+movl 8(%ebp),%ebx
+movl KERNEL_STACK(%ebx),%esp
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">    </span><br><span class="line">  - &#96;include&#x2F;linux&#x2F;sched.h&#96;</span><br><span class="line"></span><br><span class="line">    增加kernelstack</span><br><span class="line"></span><br><span class="line">    ![image-20191117062450944](&#x2F;home&#x2F;juanjuan&#x2F;.config&#x2F;Typora&#x2F;typora-user-images&#x2F;image-20191117062450944.png)</span><br><span class="line"></span><br><span class="line">    *在 PCB 的第四项中增加关于内核栈栈指针的初始化*</span><br><span class="line"></span><br><span class="line">    ![image-20191117062509838](&#x2F;home&#x2F;juanjuan&#x2F;.config&#x2F;Typora&#x2F;typora-user-images&#x2F;image-20191117062509838.png)</span><br><span class="line">    </span><br><span class="line">    注释掉原来的switch_to</span><br><span class="line">    </span><br><span class="line">    ![image-20191117062407063](&#x2F;home&#x2F;juanjuan&#x2F;.config&#x2F;Typora&#x2F;typora-user-images&#x2F;image-20191117062407063.png)</span><br><span class="line">    </span><br><span class="line">    硬编码修改</span><br><span class="line">    </span><br><span class="line">    ![image-20191117062319973](&#x2F;home&#x2F;juanjuan&#x2F;.config&#x2F;Typora&#x2F;typora-user-images&#x2F;image-20191117062319973.png)</span><br><span class="line"></span><br><span class="line">- LDT的切换</span><br><span class="line"></span><br><span class="line">  &#96;&#96;&#96;assembly</span><br><span class="line">  movl 12(%ebp),%ecx</span><br><span class="line">  lldt %cx</span><br></pre></td></tr></table></figure></code></pre>
+</li>
+</ul>
+</li>
+<li><p>PC指针的切换</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ret</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>增加全局声明</p>
+<p><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191117062834159.png" alt="image-20191117062834159"></p>
+</li>
+<li><p>完整代码</p>
+<p><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191117062631119.png" alt="image-20191117062631119"></p>
+<p><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191117062648030.png" alt="image-20191117062648030"></p>
+</li>
+</ul>
+<h3 id="3-修改fork"><a href="#3-修改fork" class="headerlink" title="3.修改fork"></a>3.修改fork</h3><ul>
+<li><p>注释掉原来的tss部分</p>
+<p><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191117064001080.png" alt="image-20191117064001080"></p>
+</li>
+<li><p>对 krnstack 进行初始化</p>
+<p><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191117063857695.png" alt="image-20191117063857695"></p>
+</li>
+<li><p>声明一下</p>
+<p><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191117063940726.png" alt="image-20191117063940726"></p>
+</li>
+</ul>
+<h3 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h3><p><img src="/home/juanjuan/.config/Typora/typora-user-images/image-20191117061811705.png" alt="image-20191117061811705"></p>
+<p>可正常运行</p>
+<h2 id="思考题"><a href="#思考题" class="headerlink" title="思考题"></a>思考题</h2><h4 id="问题-1"><a href="#问题-1" class="headerlink" title="问题 1"></a>问题 1</h4><p>针对下面的代码片段：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#TSS中的内核栈指针重写</span><br><span class="line">movl tss,%ecx</span><br><span class="line">addl $4096,%ebx</span><br><span class="line">movl %ebx,ESP0(%ecx)</span><br></pre></td></tr></table></figure>
+
+<p>回答问题：</p>
+<p>（1）为什么要加 4096；</p>
+<p>ebx寄存起指向下一个进程的PCB，加ebx+4096 即为下一个进程分配 4KB 的空间。</p>
+<p>（2）为什么没有设置 tss 中的 ss0。</p>
+<p>因为不适用tss切换进程的话，所有进程都共享同一个tss</p>
+<h4 id="问题-2"><a href="#问题-2" class="headerlink" title="问题 2"></a>问题 2</h4><p>针对代码片段：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">*(--krnstack) &#x3D; ebp;</span><br><span class="line">*(--krnstack) &#x3D; ecx;</span><br><span class="line">*(--krnstack) &#x3D; ebx;</span><br><span class="line">*(--krnstack) &#x3D; 0;</span><br></pre></td></tr></table></figure>
+
+<p>回答问题：</p>
+<p>（1）子进程第一次执行时，eax=？为什么要等于这个数？哪里的工作让 eax 等于这样一个数？</p>
+<p>eax= 0，因为fork()函数的子进程的返回值是0，<code>*(--krnstack) = 0</code>。</p>
+<p>（2）这段代码中的 ebx 和 ecx 来自哪里，是什么含义，为什么要通过这些代码将其写到子进程的内核栈中？</p>
+<p>保存的父进程的ebx和ecx，保证子进程恢复时和父进程状态相同。</p>
+<p>（3）这段代码中的 ebp 来自哪里，是什么含义，为什么要做这样的设置？可以不设置吗？为什么？</p>
+<p>保存的的父进程的用户栈指针。</p>
+<h4 id="问题-3"><a href="#问题-3" class="headerlink" title="问题 3"></a>问题 3</h4><p>为什么要在切换完 LDT 之后要重新设置 fs=0x17？而且为什么重设操作要出现在切换完 LDT 之后，出现在 LDT 之前又会怎么样？</p>
+<p>切换LDT会改变用户地址，所以需要重新设置FS。之前的话可能会导致寻址错误。</p>
+<h2 id="切换图示"><a href="#切换图示" class="headerlink" title="切换图示"></a>切换图示</h2><p><img src="/home/juanjuan/%E4%B8%8B%E8%BD%BD/1349946323.jpg" alt="1349946323"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/01/28/OSLab4-1/" rel="next" title="OSLab4-1">
+                <i class="fa fa-chevron-left"></i> OSLab4-1
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/01/28/OSLab6/" rel="prev" title="OSLab6">
+                OSLab6 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Juan</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#OSLab5"><span class="nav-number">1.</span> <span class="nav-text">OSLab5</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实验内容"><span class="nav-number">1.1.</span> <span class="nav-text">实验内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验相关"><span class="nav-number">1.2.</span> <span class="nav-text">实验相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验过程"><span class="nav-number">1.3.</span> <span class="nav-text">实验过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-修改schedule"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.修改schedule()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-实现switch-to"><span class="nav-number">1.3.2.</span> <span class="nav-text">2.实现switch_to</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-修改fork"><span class="nav-number">1.3.3.</span> <span class="nav-text">3.修改fork</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行结果"><span class="nav-number">1.3.4.</span> <span class="nav-text">运行结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思考题"><span class="nav-number">1.4.</span> <span class="nav-text">思考题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题-1"><span class="nav-number">1.4.0.1.</span> <span class="nav-text">问题 1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题-2"><span class="nav-number">1.4.0.2.</span> <span class="nav-text">问题 2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题-3"><span class="nav-number">1.4.0.3.</span> <span class="nav-text">问题 3</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#切换图示"><span class="nav-number">1.5.</span> <span class="nav-text">切换图示</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Juan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

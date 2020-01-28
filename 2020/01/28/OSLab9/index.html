@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="ch">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="OSLab917373031 张欣玥 172114 实验内容1、增加文件类型proc 2、让mknod（）支持新的文件类型   3、让proc文件可读 显然，要在这里一群 if 的排比中，加上 S_IFPROC() 的分支，进入对 proc 文件的处理函数。需要传给处理函数的参数包括：  inode-&gt;i_zone[0]，这就是 mknod() 时指定的 dev ——设备编号 buf，指向用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OSLab9">
+<meta property="og:url" content="http://yoursite.com/2020/01/28/OSLab9/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="OSLab917373031 张欣玥 172114 实验内容1、增加文件类型proc 2、让mknod（）支持新的文件类型   3、让proc文件可读 显然，要在这里一群 if 的排比中，加上 S_IFPROC() 的分支，进入对 proc 文件的处理函数。需要传给处理函数的参数包括：  inode-&gt;i_zone[0]，这就是 mknod() 时指定的 dev ——设备编号 buf，指向用">
+<meta property="og:locale" content="ch">
+<meta property="og:image" content="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200105222812.png">
+<meta property="og:image" content="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200105223024.png">
+<meta property="og:image" content="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200105223905.png">
+<meta property="og:image" content="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200105225308.png">
+<meta property="og:image" content="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200105223303.png">
+<meta property="og:image" content="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200105225400.png">
+<meta property="og:image" content="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200105224227.png">
+<meta property="og:image" content="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200105225423.png">
+<meta property="og:image" content="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200105225520.png">
+<meta property="og:image" content="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200105225446.png">
+<meta property="og:image" content="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200105225503.png">
+<meta property="og:image" content="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200105225844.png">
+<meta property="og:image" content="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200105225905.png">
+<meta property="article:published_time" content="2020-01-28T11:10:11.166Z">
+<meta property="article:modified_time" content="2020-01-05T15:01:05.000Z">
+<meta property="article:author" content="Juan">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200105222812.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/01/28/OSLab9/"/>
+
+
+
+
+
+  <title>OSLab9 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="ch">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Juan share</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/28/OSLab9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Juan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">OSLab9</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-28T19:10:11+08:00">
+                2020-01-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="OSLab9"><a href="#OSLab9" class="headerlink" title="OSLab9"></a>OSLab9</h1><p>17373031 张欣玥 172114</p>
+<h3 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a>实验内容</h3><h4 id="1、增加文件类型proc"><a href="#1、增加文件类型proc" class="headerlink" title="1、增加文件类型proc"></a>1、增加文件类型proc</h4><p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200105222812.png" alt=""></p>
+<h4 id="2、让mknod（）支持新的文件类型"><a href="#2、让mknod（）支持新的文件类型" class="headerlink" title="2、让mknod（）支持新的文件类型"></a>2、让mknod（）支持新的文件类型</h4><p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200105223024.png" alt=""></p>
+<p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200105223905.png" alt=""></p>
+<p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200105225308.png" alt=""></p>
+<h4 id="3、让proc文件可读"><a href="#3、让proc文件可读" class="headerlink" title="3、让proc文件可读"></a>3、让proc文件可读</h4><p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200105223303.png" alt=""></p>
+<p>显然，要在这里一群 if 的排比中，加上 <code>S_IFPROC()</code> 的分支，进入对 proc 文件的处理函数。需要传给处理函数的参数包括：</p>
+<ul>
+<li><code>inode-&gt;i_zone[0]</code>，这就是 <code>mknod()</code> 时指定的 <code>dev</code> ——设备编号</li>
+<li><code>buf</code>，指向用户空间，就是 <code>read()</code> 的第二个参数，用来接收数据</li>
+<li><code>count</code>，就是 <code>read()</code> 的第三个参数，说明 <code>buf</code> 指向的缓冲区大小</li>
+<li><code>&amp;file-&gt;f_pos</code>，<code>f_pos</code> 是上一次读文件结束时“文件位置指针”的指向。这里必须传指针，因为处理函数需要根据传给 <code>buf</code> 的数据量修改 <code>f_pos</code> 的值。</li>
+</ul>
+<h4 id="4、proc文件的处理函数"><a href="#4、proc文件的处理函数" class="headerlink" title="4、proc文件的处理函数"></a>4、proc文件的处理函数</h4><p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200105225400.png" alt=""></p>
+<h4 id="5、实现sprintf（）函数"><a href="#5、实现sprintf（）函数" class="headerlink" title="5、实现sprintf（）函数"></a>5、实现sprintf（）函数</h4><p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200105224227.png" alt=""></p>
+<h4 id="6、cat命令的实现"><a href="#6、cat命令的实现" class="headerlink" title="6、cat命令的实现"></a>6、cat命令的实现</h4><h4 id="7、ps-info的内容"><a href="#7、ps-info的内容" class="headerlink" title="7、ps info的内容"></a>7、ps info的内容</h4><p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200105225423.png" alt=""></p>
+<p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200105225520.png" alt=""></p>
+<h4 id="8、hdinfo的内容"><a href="#8、hdinfo的内容" class="headerlink" title="8、hdinfo的内容"></a>8、hdinfo的内容</h4><p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200105225446.png" alt=""></p>
+<p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200105225503.png" alt=""></p>
+<p>*改makefile</p>
+<p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200105225844.png" alt=""></p>
+<p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200105225905.png" alt=""></p>
+<h3 id="实验报告"><a href="#实验报告" class="headerlink" title="实验报告"></a>实验报告</h3><ul>
+<li>如果要求你在 <code>psinfo</code> 之外再实现另一个结点，具体内容自选，那么你会实现一个给出什么信息的结点？为什么？</li>
+<li>CPU信息。因为很重要.jpg</li>
+<li>一次read()未必能读出所有的数据，需要继续read()，直到把数据读空为止。而数次read()之间，进程的状态可能会发生变化。你认为后几次read()传给用户的数据，应该是变化后的，还是变化前的？<ul>
+<li>如果是变化后的，那么用户得到的数据衔接部分是否会有混乱？如何防止混乱？</li>
+<li>如果是变化前的，那么该在什么样的情况下更新 <code>psinfo</code> 的内容？</li>
+</ul>
+</li>
+</ul>
+<p>会混乱。如果要防止混乱发生，可以考虑将取到的进程信息保存在硬盘的一个文件中，读取时只要该文件存在，就从文件中直接读取，而不是每次read都重新生成进程信息，而一次读动作完成后就将硬盘上的文件删除。这样下次再时再次生成文件。这样可以保证传递的数据是一致的。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/01/28/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/01/28/oslab1/" rel="prev" title="oslab1">
+                oslab1 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Juan</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#OSLab9"><span class="nav-number">1.</span> <span class="nav-text">OSLab9</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实验内容"><span class="nav-number">1.0.1.</span> <span class="nav-text">实验内容</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、增加文件类型proc"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">1、增加文件类型proc</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、让mknod（）支持新的文件类型"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">2、让mknod（）支持新的文件类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、让proc文件可读"><span class="nav-number">1.0.1.3.</span> <span class="nav-text">3、让proc文件可读</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、proc文件的处理函数"><span class="nav-number">1.0.1.4.</span> <span class="nav-text">4、proc文件的处理函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、实现sprintf（）函数"><span class="nav-number">1.0.1.5.</span> <span class="nav-text">5、实现sprintf（）函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6、cat命令的实现"><span class="nav-number">1.0.1.6.</span> <span class="nav-text">6、cat命令的实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7、ps-info的内容"><span class="nav-number">1.0.1.7.</span> <span class="nav-text">7、ps info的内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8、hdinfo的内容"><span class="nav-number">1.0.1.8.</span> <span class="nav-text">8、hdinfo的内容</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实验报告"><span class="nav-number">1.0.2.</span> <span class="nav-text">实验报告</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Juan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
