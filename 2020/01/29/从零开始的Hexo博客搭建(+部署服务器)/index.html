@@ -58,7 +58,7 @@
 <meta property="og:image" content="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200129002818.png">
 <meta property="og:image" content="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200129010150.png">
 <meta property="article:published_time" content="2020-01-28T17:06:48.142Z">
-<meta property="article:modified_time" content="2020-01-29T11:08:15.756Z">
+<meta property="article:modified_time" content="2020-01-29T11:12:03.477Z">
 <meta property="article:author" content="Juan">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200129002020.png">
@@ -199,7 +199,7 @@
               <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
-              <time title="Erstellt: 2020-01-29 01:06:48 / Geändert am: 19:08:15" itemprop="dateCreated datePublished" datetime="2020-01-29T01:06:48+08:00">2020-01-29</time>
+              <time title="Erstellt: 2020-01-29 01:06:48 / Geändert am: 19:12:03" itemprop="dateCreated datePublished" datetime="2020-01-29T01:06:48+08:00">2020-01-29</time>
             </span>
 
           
@@ -413,12 +413,12 @@
 <p>在使用<code>hexo g</code>命令时，出现报错：</p>
 <figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">FATAL Something<span class="symbol">'s</span> wrong. Maybe you can find the solution here: https:<span class="comment">//hexo.io/docs/troubleshooting.html</span></span><br><span class="line">Nunjucks Error:  [Line <span class="number">201</span>, Column <span class="number">37</span>] unexpected token: &#125;&#125;</span><br><span class="line">    =====               Context Dump               =====</span><br><span class="line">    === (line number probably different from source) ===</span><br></pre></td></tr></table></figure>
 
-<p>出现上述情况的原因是 Markdown 文件中的 <code>{{}}</code> {% raw %}标签与 nunjucks 模板引擎的标签发生了冲突。 {% raw %}<code>{{}}</code>，``，<code>{% %}</code>  {% raw %}等这些标签都是模板引擎的占位标签，如果 MarkDown 文件中包含这些标签，且不被 代码块包裹（<code>单代码块不行</code>）那么解析时就会把 MD 文件中的标签动态解析了，于是导致 MD 文件解析时报错。</p>
+<p>出现上述情况的原因是 Markdown 文件中的 `{{}}` 标签与 nunjucks 模板引擎的标签发生了冲突。 `{{}}`，`{# #}`，`{% %}`  等这些标签都是模板引擎的占位标签，如果 MarkDown 文件中包含这些标签，且不被 代码块包裹（<code>单代码块不行</code>）那么解析时就会把 MD 文件中的标签动态解析了，于是导致 MD 文件解析时报错。</p>
 <p>解决方法：</p>
 <ul>
 <li><p>修改markdown文件</p>
 <p>将含有双大括号的内容首尾添加如下标签进行处理：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% raw %&#125;</span><br><span class="line">&#123;&#123; 双大括号内包裹的内容 &#125;&#125;</span><br><span class="line">&#123;% raw %&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% raw %&#125;</span><br><span class="line">&#123;&#123; 双大括号内包裹的内容 &#125;&#125;</span><br><span class="line">&#123;% endraw %&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>修改 nunjucks 模块源代码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int main()&#123;</span><br><span class="line">	printf(&quot;Hello World&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
