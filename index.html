@@ -166,6 +166,167 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ch">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/27/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E8%AE%B0%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Juan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Juan.M.T">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/27/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">搭建个人网站记录</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+
+              <time title="Erstellt: 2020-03-27 01:08:35" itemprop="dateCreated datePublished" datetime="2020-03-27T01:08:35+08:00">2020-03-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2020-03-29 00:35:53" itemprop="dateModified" datetime="2020-03-29T00:35:53+08:00">2020-03-29</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="搭建个人网站记录"><a href="#搭建个人网站记录" class="headerlink" title="搭建个人网站记录"></a>搭建个人网站记录</h1><h2 id="网站基本结构"><a href="#网站基本结构" class="headerlink" title="网站基本结构"></a>网站基本结构</h2><p>主界面：<a href="http://www.juanmaotu.top" target="_blank" rel="noopener">www.juanmaotu.top</a></p>
+<p>子菜单：</p>
+<ul>
+<li>blog.juanmaotu.top</li>
+<li>studynotes.juanmaotu.top（hexo博客）</li>
+<li>外部链接：b站、github</li>
+</ul>
+<h2 id="过程记录"><a href="#过程记录" class="headerlink" title="过程记录"></a>过程记录</h2><h3 id="2020-03-26"><a href="#2020-03-26" class="headerlink" title="2020.03.26"></a>2020.03.26</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm init webpack [项目名称]</span><br><span class="line">npm install jquery --save</span><br><span class="line">npm install bootstrap  -save</span><br></pre></td></tr></table></figure>
+
+<p>vue中height：100%失效</p>
+<blockquote>
+<p><a href="https://www.jb51.net/article/144589.htm" target="_blank" rel="noopener">https://www.jb51.net/article/144589.htm</a></p>
+</blockquote>
+<p>height：100%时，div的高度等同于父元素的高度。</p>
+<p>``Helloworld.vue<code>中最外层&lt;div&gt;的父元素为</code>App.vue<code>中的id为app的div，其父元素为</code>index.html`中的<body>、<html>。要将所有的父元素的高度设置为100%。</p>
+<h3 id="2020-03-27"><a href="#2020-03-27" class="headerlink" title="2020.03.27"></a>2020.03.27</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.back_1 &#123;</span><br><span class="line">    height: 100%;</span><br><span class="line">    width: 100%;</span><br><span class="line">    background-image: url(..&#x2F;assets&#x2F;background1.jpg);</span><br><span class="line">    opacity: 50%;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>url属性：</p>
+<ul>
+<li><p>如果该css文件和北京图片在同一文件夹（或该文件夹的子文件夹），则直接写文件名（子文件夹名/文件名）。</p>
+</li>
+<li><p>如果不在同一文件夹，则用<code>../</code></p>
+<blockquote>
+<p>“../“表示上一级目录</p>
+<p>“./“ 表示同级目录</p>
+<p>“/“ 表示根目录开始</p>
+</blockquote>
+</li>
+</ul>
+<p>CSS background-repeat 属性：</p>
+<ul>
+<li><table>
+<thead>
+<tr>
+<th>repeat</th>
+<th>默认。背景图像将在垂直方向和水平方向重复。</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>repeat-x</td>
+<td>背景图像将在水平方向重复。</td>
+</tr>
+<tr>
+<td>repeat-y</td>
+<td>背景图像将在垂直方向重复。</td>
+</tr>
+<tr>
+<td>no-repeat</td>
+<td>背景图像将仅显示一次。</td>
+</tr>
+<tr>
+<td>inherit</td>
+<td>规定应该从父元素继承 background-repeat 属性的设置。</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<p>CSS3新属性  background-size</p>
+<ul>
+<li><pre><code>div
+{
+    background:url(img_flwr.gif);
+    background-size:100% 100%;
+    background-repeat:no-repeat;
+}
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 伸展图片北京玩去哪填充内容区域</span><br><span class="line"></span><br><span class="line">CSS3新属性 background-origin</span><br><span class="line"></span><br><span class="line">- content-box, padding-box,和 border-box区域内可以放置背景图像。</span><br><span class="line"></span><br><span class="line">  ![img](https:&#x2F;&#x2F;www.runoob.com&#x2F;images&#x2F;background-origin.gif)</span><br><span class="line"></span><br><span class="line">CSS实现自适应正方形</span><br><span class="line"></span><br><span class="line">&gt; https:&#x2F;&#x2F;blog.csdn.net&#x2F;ztj771299799&#x2F;article&#x2F;details&#x2F;79806769</span><br><span class="line"></span><br><span class="line">- 利用.CSS3 vw 单位，vw是相对于视口的宽度。视口被均分为100单位的vw。1vw &#x3D; 1% viewport width</span><br><span class="line"></span><br><span class="line">  &lt;div class&#x3D;&quot;square&quot;&gt;hello,viewport&lt;&#x2F;div&gt;</span><br><span class="line">  &lt;style&gt;</span><br><span class="line">  .square &#123;</span><br><span class="line">          width: 50%;</span><br><span class="line">          height: 50vw;</span><br><span class="line">          background: #ccc;</span><br><span class="line">    &#125;</span><br><span class="line">   &lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
+&lt;div class=&quot;square&quot;&gt;hello,viewport&lt;/div&gt;
+&lt;style&gt;
+.square {
+    width: 50%;
+    height: 50vw;
+    background: #ccc;
+}  
+&lt;/style&gt;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">CSS居中问题</span><br><span class="line"></span><br><span class="line">- 水平居中</span><br><span class="line"></span><br><span class="line">  父元素：&#96;&#96;text-align：center&#96;</span><br><span class="line"></span><br><span class="line">  子元素：&#96;margin:0 auto&#96;</span><br><span class="line"></span><br><span class="line">vue用vbind绑定属性,使圆圈垂直居中。</span><br></pre></td></tr></table></figure>
+&lt;div :style=&quot;{top: styleObject}&quot; class=&quot;centercircle&quot;&gt;&lt;/div&gt;
+</code></pre></li>
+</ul>
+<p>computed:{<br>        styleObject:function () {<br>          var is2 = document.body.clientWidth;<br>          var is3 = document.body.clientHeight;<br>          var res = is3/2-is2*0.1;<br>          // alert(res);<br>          return res+’px’;<br>        }<br>    }</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- absolute居中</span><br></pre></td></tr></table></figure>
+<p>  margin: auto;<br>  position: absolute;<br>  left:0; right:0; top:0; bottom:0;<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">-</span><br></pre></td></tr></table></figure><br>  position: absolute;<br>  left:50%; top:50%;<br>  margin-left: -20%;<br>  margin-top: -20%;<br>  //元素<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">动态获取页面高度&amp;宽度</span><br><span class="line"></span><br><span class="line">&gt; https:&#x2F;&#x2F;blog.csdn.net&#x2F;nz618&#x2F;article&#x2F;details&#x2F;84959582?depth_1-utm_source&#x3D;distribute.pc_relevant.none-task&amp;utm_source&#x3D;distribute.pc_relevant.none-task</span><br><span class="line"></span><br><span class="line">-</span><br></pre></td></tr></table></figure><br>  最基本的<br>  document.body.clientWidth;<br>  document.body.clientHeight;<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 但是当页面缩放时，必须要刷新才能重新获得高度&amp;宽度</span><br><span class="line"></span><br><span class="line">- 用watch监听</span><br><span class="line"></span><br><span class="line">  &gt; https:&#x2F;&#x2F;blog.csdn.net&#x2F;wsln_123456&#x2F;article&#x2F;details&#x2F;102909272</span><br><span class="line"></span><br><span class="line">vue组件中data为函数</span><br><span class="line"></span><br><span class="line">去除滚动条</span><br></pre></td></tr></table></figure><br>::-webkit-scrollbar {<br>  width: 0 !important;<br>}<br>::-webkit-scrollbar {<br>  width: 0 !important;<br>  height: 0;<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">防止div覆盖导致的点击事件失效</span><br></pre></td></tr></table></figure>
+<p>//父元素<br>pointer-events: none;<br>//子元素解除点击限制<br>pointer-events: auto;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@绑定事件</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;dart</span><br><span class="line">@click&#x3D;&quot;click&quot;     &#x2F;&#x2F;&#x2F;&#x2F;单击</span><br><span class="line">@mousedown&#x3D;&quot;down&quot;       &#x2F;&#x2F;&#x2F;&#x2F;按下</span><br><span class="line">@mouseup&#x3D;&quot;up&quot;          &#x2F;&#x2F;&#x2F;&#x2F;抬起</span><br><span class="line"></span><br><span class="line">@dblclick&#x3D;&quot;dblclick&quot;      &#x2F;&#x2F;&#x2F;&#x2F;双击</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@mousemove&#x3D;&quot;move&quot;     &#x2F;&#x2F;&#x2F;&#x2F;移动</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@mouseleave&#x3D;&quot;out&quot;        &#x2F;&#x2F;&#x2F;&#x2F;离开</span><br><span class="line">@mouseout &#x3D;&quot;out&quot;         &#x2F;&#x2F;&#x2F;&#x2F;移出</span><br><span class="line"></span><br><span class="line">@mouseenter&#x3D;&quot;enter&quot;     &#x2F;&#x2F;&#x2F;&#x2F;进入</span><br><span class="line">@mouseover&#x3D;&quot;enter&quot;        &#x2F;&#x2F;&#x2F;&#x2F;在</span><br></pre></td></tr></table></figure>
+
+<h3 id="2020-03-28"><a href="#2020-03-28" class="headerlink" title="2020.03.28"></a>2020.03.28</h3><p>vue项目打包部署后空白问题</p>
+<p>vue&amp;live2d</p>
+<blockquote>
+<p><a href="https://www.cnblogs.com/SaberInoryKiss/p/11837888.html" target="_blank" rel="noopener">https://www.cnblogs.com/SaberInoryKiss/p/11837888.html</a></p>
+</blockquote>
+<p>获取div中的文字内容<code>innerHTML</code></p>
+<p>音频播放<video></p>
+<p>播放（<code>play()</code>）&amp;暂停（<code>pause()</code>）</p>
+<p>vue监听鼠标位置</p>
+<blockquote>
+<p><a href="https://blog.csdn.net/u013243347/article/details/81179422" target="_blank" rel="noopener">https://blog.csdn.net/u013243347/article/details/81179422</a></p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ch">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/29/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA(+%E9%83%A8%E7%BD%B2%E6%9C%8D%E5%8A%A1%E5%99%A8)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -189,10 +350,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Veröffentlicht am</span>
-              
 
-              <time title="Erstellt: 2020-01-29 01:06:48 / Geändert am: 19:12:03" itemprop="dateCreated datePublished" datetime="2020-01-29T01:06:48+08:00">2020-01-29</time>
+              <time title="Erstellt: 2020-01-29 01:06:48" itemprop="dateCreated datePublished" datetime="2020-01-29T01:06:48+08:00">2020-01-29</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2020-01-30 02:40:15" itemprop="dateModified" datetime="2020-01-30T02:40:15+08:00">2020-01-30</time>
+              </span>
 
           
 
@@ -569,7 +736,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">Artikel</span>
         </a>
       </div>
