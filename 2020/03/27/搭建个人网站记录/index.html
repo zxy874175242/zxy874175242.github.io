@@ -54,7 +54,7 @@
 <meta property="og:description" content="搭建个人网站记录网站基本结构主界面：www.juanmaotu.top 子菜单：  blog.juanmaotu.top studynotes.juanmaotu.top（hexo博客） 外部链接：b站、github  过程记录2020.03.26123npm init webpack [项目名称]npm install jquery --savenpm install bootstrap  -s">
 <meta property="og:locale" content="ch">
 <meta property="article:published_time" content="2020-03-26T17:08:35.497Z">
-<meta property="article:modified_time" content="2020-03-28T16:35:53.723Z">
+<meta property="article:modified_time" content="2020-04-02T18:21:50.052Z">
 <meta property="article:author" content="Juan">
 <meta name="twitter:card" content="summary">
 
@@ -122,7 +122,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
+    <div class="toggle" aria-label="Navigationsleiste an/ausschalten">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -136,12 +136,12 @@
   <ul id="menu" class="menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Startseite</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archiv</a>
 
   </li>
   </ul>
@@ -191,16 +191,16 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
 
-              <time title="Created: 2020-03-27 01:08:35" itemprop="dateCreated datePublished" datetime="2020-03-27T01:08:35+08:00">2020-03-27</time>
+              <time title="Erstellt: 2020-03-27 01:08:35" itemprop="dateCreated datePublished" datetime="2020-03-27T01:08:35+08:00">2020-03-27</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-29 00:35:53" itemprop="dateModified" datetime="2020-03-29T00:35:53+08:00">2020-03-29</time>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2020-04-03 02:21:50" itemprop="dateModified" datetime="2020-04-03T02:21:50+08:00">2020-04-03</time>
               </span>
 
           
@@ -311,6 +311,42 @@
 <blockquote>
 <p><a href="https://blog.csdn.net/u013243347/article/details/81179422" target="_blank" rel="noopener">https://blog.csdn.net/u013243347/article/details/81179422</a></p>
 </blockquote>
+<h3 id="2020-03-31"><a href="#2020-03-31" class="headerlink" title="2020.03.31"></a>2020.03.31</h3><p>每隔一定时间重复执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setInterval(function()&#123; alert(&quot;Hello&quot;); &#125;, 3000);</span><br></pre></td></tr></table></figure>
+
+<p>获得页面宽度：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.body.clientWidth</span><br></pre></td></tr></table></figure>
+
+<p>获得鼠标位置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">event.clientX</span><br></pre></td></tr></table></figure>
+
+<p>程序只触发一次</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button v-on:click.once&#x3D;&quot;doThis&quot;&gt;&lt;&#x2F;button&gt;</span><br></pre></td></tr></table></figure>
+
+<p>音频可视化</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Audio_API/Visualizations_with_Web_Audio_API" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Audio_API/Visualizations_with_Web_Audio_API</a></p>
+<h3 id="2020-04-01"><a href="#2020-04-01" class="headerlink" title="2020.04.01"></a>2020.04.01</h3><p>毛玻璃效果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">filter:blur(15px);</span><br></pre></td></tr></table></figure>
+
+<p>Vue根据条件添加click事件的方式</p>
+<p><a href="https://www.jb51.net/article/173881.htm" target="_blank" rel="noopener">https://www.jb51.net/article/173881.htm</a></p>
+<p>缓动函数</p>
+<p>y=sin(t*π/2)</p>
+<h3 id="2020-04-02"><a href="#2020-04-02" class="headerlink" title="2020.04.02"></a>2020.04.02</h3><p>改变字体倾斜角度</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">transform: skew(-10deg);</span><br></pre></td></tr></table></figure>
+
+<p>inline-block间距问题</p>
+<p><a href="https://www.cnblogs.com/zhen-prz/p/10617138.html" target="_blank" rel="noopener">https://www.cnblogs.com/zhen-prz/p/10617138.html</a></p>
+<p>调用本地json</p>
+<p><a href="https://www.cnblogs.com/web-aqin/p/10768345.html" target="_blank" rel="noopener">https://www.cnblogs.com/web-aqin/p/10768345.html</a></p>
+<p>修改className但是样式显示不出来的问题（style scoped的问题）</p>
+<p><a href="https://blog.csdn.net/qq_39043923/article/details/88687046" target="_blank" rel="noopener">https://blog.csdn.net/qq_39043923/article/details/88687046</a></p>
+<p><a href="https://blog.csdn.net/maidu_xbd/article/details/89315210" target="_blank" rel="noopener">https://blog.csdn.net/maidu_xbd/article/details/89315210</a></p>
+<p>setAttribute()</p>
+<p><a href="https://www.w3school.com.cn/jsref/met_element_setattribute.asp" target="_blank" rel="noopener">https://www.w3school.com.cn/jsref/met_element_setattribute.asp</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">this.$axios</span><br><span class="line">            .get(&#39;..&#x2F;..&#x2F;static&#x2F;data.json&#39;)</span><br><span class="line">            &#x2F;&#x2F; .then(response &#x3D;&gt; (this.info &#x3D; response))</span><br><span class="line">            .then(response &#x3D;&gt; &#123;</span><br><span class="line">                console.log(response.data.result);</span><br><span class="line">                _this.results &#x3D; response.data.result;</span><br><span class="line">                var iss &#x3D; document.getElementById(&quot;box&quot;);</span><br><span class="line"></span><br><span class="line">                var dataV &#x3D; iss.attributes[0].name;</span><br><span class="line">                console.log(dataV);</span><br><span class="line">                &#x2F;&#x2F; alert(iss.style.width);</span><br><span class="line">                for(var i &#x3D; 0; i &lt;_this.results.length; i++)&#123;</span><br><span class="line">                    console.log(_this.results[i].pvUrl);</span><br><span class="line">                    var node &#x3D; document.createElement(&quot;div&quot;);</span><br><span class="line">                    node.style.backgroundColor &#x3D; &quot;red&quot;;</span><br><span class="line">                    node.style.backgroundImage &#x3D; &quot;url(&quot;+_this.results[i].pvImg+&quot;)&quot;;</span><br><span class="line">                    node.className &#x3D; &quot;smallcontent&quot;;</span><br><span class="line">                    node.setAttribute(dataV, &quot;&quot;);</span><br><span class="line">                    node.setAttribute(&quot;onclick&quot;, &quot;window.open(&quot;+&quot;\&#39;&quot;+_this.results[i].pvUrl+&quot;\&#39;&quot;+&quot;)&quot;);</span><br><span class="line">                    iss.appendChild(node);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">            .catch(function (error) &#123; &#x2F;&#x2F; 请求失败处理</span><br><span class="line">                console.log(error);</span><br><span class="line">            &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>通过json文件动态生成图片列表，并添加class&amp;点击跳转&amp;奇怪的跨域问题</p>
 
     </div>
 
@@ -380,16 +416,16 @@
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          Table of Contents
+          Inhaltsverzeichnis
         </li>
         <li class="sidebar-nav-overview">
-          Overview
+          Übersicht
         </li>
       </ul>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#搭建个人网站记录"><span class="nav-number">1.</span> <span class="nav-text">搭建个人网站记录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#网站基本结构"><span class="nav-number">1.1.</span> <span class="nav-text">网站基本结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过程记录"><span class="nav-number">1.2.</span> <span class="nav-text">过程记录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2020-03-26"><span class="nav-number">1.2.1.</span> <span class="nav-text">2020.03.26</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2020-03-27"><span class="nav-number">1.2.2.</span> <span class="nav-text">2020.03.27</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2020-03-28"><span class="nav-number">1.2.3.</span> <span class="nav-text">2020.03.28</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#搭建个人网站记录"><span class="nav-number">1.</span> <span class="nav-text">搭建个人网站记录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#网站基本结构"><span class="nav-number">1.1.</span> <span class="nav-text">网站基本结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过程记录"><span class="nav-number">1.2.</span> <span class="nav-text">过程记录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2020-03-26"><span class="nav-number">1.2.1.</span> <span class="nav-text">2020.03.26</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2020-03-27"><span class="nav-number">1.2.2.</span> <span class="nav-text">2020.03.27</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2020-03-28"><span class="nav-number">1.2.3.</span> <span class="nav-text">2020.03.28</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2020-03-31"><span class="nav-number">1.2.4.</span> <span class="nav-text">2020.03.31</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2020-04-01"><span class="nav-number">1.2.5.</span> <span class="nav-text">2020.04.01</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2020-04-02"><span class="nav-number">1.2.6.</span> <span class="nav-text">2020.04.02</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -404,7 +440,7 @@
           <a href="/archives/">
         
           <span class="site-state-item-count">3</span>
-          <span class="site-state-item-name">posts</span>
+          <span class="site-state-item-name">Artikel</span>
         </a>
       </div>
   </nav>
@@ -437,10 +473,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Juan</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0
+  <div class="theme-info">Design – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0
   </div>
 
         
