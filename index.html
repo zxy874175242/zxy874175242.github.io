@@ -197,7 +197,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Bearbeitet am</span>
-                <time title="Geändert am: 2020-04-03 02:21:50" itemprop="dateModified" datetime="2020-04-03T02:21:50+08:00">2020-04-03</time>
+                <time title="Geändert am: 2020-07-15 23:30:14" itemprop="dateModified" datetime="2020-07-15T23:30:14+08:00">2020-07-15</time>
               </span>
 
           
@@ -211,7 +211,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="搭建个人网站记录"><a href="#搭建个人网站记录" class="headerlink" title="搭建个人网站记录"></a>搭建个人网站记录</h1><h2 id="网站基本结构"><a href="#网站基本结构" class="headerlink" title="网站基本结构"></a>网站基本结构</h2><p>主界面：<a href="http://www.juanmaotu.top" target="_blank" rel="noopener">www.juanmaotu.top</a></p>
+          <h1 id="搭建个人网站记录"><a href="#搭建个人网站记录" class="headerlink" title="搭建个人网站记录"></a>搭建个人网站记录</h1><p>[toc]</p>
+<h2 id="网站基本结构"><a href="#网站基本结构" class="headerlink" title="网站基本结构"></a>网站基本结构</h2><p>主界面：<a href="http://www.juanmaotu.top" target="_blank" rel="noopener">www.juanmaotu.top</a></p>
 <p>子菜单：</p>
 <ul>
 <li>blog.juanmaotu.top</li>
@@ -344,6 +345,62 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">this.$axios</span><br><span class="line">            .get(&#39;..&#x2F;..&#x2F;static&#x2F;data.json&#39;)</span><br><span class="line">            &#x2F;&#x2F; .then(response &#x3D;&gt; (this.info &#x3D; response))</span><br><span class="line">            .then(response &#x3D;&gt; &#123;</span><br><span class="line">                console.log(response.data.result);</span><br><span class="line">                _this.results &#x3D; response.data.result;</span><br><span class="line">                var iss &#x3D; document.getElementById(&quot;box&quot;);</span><br><span class="line"></span><br><span class="line">                var dataV &#x3D; iss.attributes[0].name;</span><br><span class="line">                console.log(dataV);</span><br><span class="line">                &#x2F;&#x2F; alert(iss.style.width);</span><br><span class="line">                for(var i &#x3D; 0; i &lt;_this.results.length; i++)&#123;</span><br><span class="line">                    console.log(_this.results[i].pvUrl);</span><br><span class="line">                    var node &#x3D; document.createElement(&quot;div&quot;);</span><br><span class="line">                    node.style.backgroundColor &#x3D; &quot;red&quot;;</span><br><span class="line">                    node.style.backgroundImage &#x3D; &quot;url(&quot;+_this.results[i].pvImg+&quot;)&quot;;</span><br><span class="line">                    node.className &#x3D; &quot;smallcontent&quot;;</span><br><span class="line">                    node.setAttribute(dataV, &quot;&quot;);</span><br><span class="line">                    node.setAttribute(&quot;onclick&quot;, &quot;window.open(&quot;+&quot;\&#39;&quot;+_this.results[i].pvUrl+&quot;\&#39;&quot;+&quot;)&quot;);</span><br><span class="line">                    iss.appendChild(node);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">            .catch(function (error) &#123; &#x2F;&#x2F; 请求失败处理</span><br><span class="line">                console.log(error);</span><br><span class="line">            &#125;)</span><br></pre></td></tr></table></figure>
 
 <p>通过json文件动态生成图片列表，并添加class&amp;点击跳转&amp;奇怪的跨域问题</p>
+<h3 id="2020-07-14"><a href="#2020-07-14" class="headerlink" title="2020.07.14"></a>2020.07.14</h3><p>宝塔部署前后端分离网站</p>
+<p>后端（Springboot）直接运行package命令，生成jar包，上传服务器后</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">java -jar juanhouduan-0.0.1-SNAPSHOT.jar </span><br><span class="line"></span><br><span class="line">//后台运行</span><br><span class="line">java -jar juanhouduan-0.0.1-SNAPSHOT.jar &gt; log.file 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+
+<p>对于已经后台的执行的进场，可以通过ps命令查看对应pid，直接sudo kill pid即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">admin@chgl16:~&#x2F;project&#x2F;chatroom$ ps</span><br><span class="line">  PID TTY          TIME CMD</span><br><span class="line">22951 pts&#x2F;0    00:00:00 bash</span><br><span class="line">22977 pts&#x2F;0    00:00:00 top</span><br><span class="line">23111 pts&#x2F;0    00:00:12 java   #####</span><br><span class="line">23332 pts&#x2F;0    00:00:00 ps</span><br></pre></td></tr></table></figure>
+
+<p>前端（Vue）</p>
+<p>就正常的默认配置部署在宝塔上，记得把域名写到后端的@CrossOrigin就ok</p>
+<blockquote>
+<p>nginx配置 <a href="https://blog.csdn.net/M_Dawn/article/details/107136139" target="_blank" rel="noopener">https://blog.csdn.net/M_Dawn/article/details/107136139</a></p>
+<p>将ProxyTable里的请求地址配到nginx里</p>
+<p>要不然会转发失败404</p>
+</blockquote>
+<h2 id="一些技术点"><a href="#一些技术点" class="headerlink" title="一些技术点"></a>一些技术点</h2><h3 id="CORS跨域问题"><a href="#CORS跨域问题" class="headerlink" title="CORS跨域问题"></a>CORS跨域问题</h3><blockquote>
+<p><a href="https://blog.csdn.net/weixin_41824658/article/details/102699904" target="_blank" rel="noopener">https://blog.csdn.net/weixin_41824658/article/details/102699904</a></p>
+<p>也可以添加Filter</p>
+</blockquote>
+<p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200714195836.png" alt="image-20200714195839542"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//@CrossOrigin(origins = "http://localhost:8080", maxAge = 3600)</span></span><br><span class="line"><span class="comment">//后来改成域名了</span></span><br><span class="line"><span class="comment">//http://works.juanmaotu.top不能带端口&amp;不能带最后的斜杠</span></span><br><span class="line"><span class="meta">@CrossOrigin</span>(origins = <span class="string">"http://works.juanmaotu.top"</span>, maxAge = <span class="number">3600</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//vue的index.js配置</span></span><br><span class="line">    proxyTable: &#123;</span><br><span class="line">      '/rest': &#123;</span><br><span class="line">        target: 'http://localhost:8086/',//后端接口地址</span><br><span class="line">        changeOrigin: true,//是否允许跨越</span><br><span class="line">        pathRewrite: &#123;</span><br><span class="line">          '^/rest': '/',//重写,相当于把接口调用中的/rest替换为http://localhost:8086/</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      &#125;,</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//vue组件中调用</span></span><br><span class="line"><span class="comment">//'http://localhost:8086/list' 可以直接写成`/rest/list`</span></span><br><span class="line"><span class="keyword">this</span>.$axios.get(<span class="string">'http://localhost:8086/list'</span>)</span><br><span class="line">.then(<span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">	<span class="built_in">console</span>.log(response)</span><br><span class="line">&#125;)</span><br><span class="line">.catch(<span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123; <span class="comment">// 请求失败处理</span></span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'error'</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>实际用的时候发现一个很神奇的问题，使用<code>http://localhost:8086/list</code>接口时，必须</p>
+<p>配置<code>CrossOrigin</code>，但用<code>/rest/list</code>调用就可以不配置。</p>
+<h3 id="JS闭包"><a href="#JS闭包" class="headerlink" title="JS闭包"></a>JS闭包</h3><h3 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h3><h3 id="居中布局"><a href="#居中布局" class="headerlink" title="居中布局"></a>居中布局</h3><p>水平居中</p>
+<ul>
+<li>行内元素: text-align: center</li>
+<li>块级元素: margin: 0 auto</li>
+<li>position:absolute +left:50%+ transform:translateX(-50%)</li>
+<li>display:flex + justify-content: center</li>
+</ul>
+<p>垂直居中</p>
+<ul>
+<li>设置line-height 等于height</li>
+<li>position：absolute +top:50%+ transform:translateY(-50%)</li>
+<li>display:flex + align-items: center</li>
+<li>display:table+display:table-cell + vertical-align: middle;</li>
+</ul>
+<h3 id="HTTP响应码"><a href="#HTTP响应码" class="headerlink" title="HTTP响应码"></a>HTTP响应码</h3><p><img src="https://juanmdbucket.oss-cn-beijing.aliyuncs.com/20200714202256.png" alt="image-20200714202255774"></p>
+<p><img src="C:%5CUsers%5CZXY%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200714202517866.png" alt="image-20200714202517866"></p>
+<p><img src="C:%5CUsers%5CZXY%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200715201732634.png" alt="image-20200715201732634"></p>
+<p>接口错误时会提示404</p>
+<p>连不上后端会提示500</p>
+<h3 id="Canvas一些点"><a href="#Canvas一些点" class="headerlink" title="Canvas一些点"></a>Canvas一些点</h3><h3 id="Springboot-json"><a href="#Springboot-json" class="headerlink" title="Springboot+json"></a>Springboot+json</h3><blockquote>
+<p><a href="https://www.jianshu.com/p/e5d8ba73b13b" target="_blank" rel="noopener">https://www.jianshu.com/p/e5d8ba73b13b</a></p>
+<p><a href="https://www.cnblogs.com/xiaostudy/p/11664076.html" target="_blank" rel="noopener">https://www.cnblogs.com/xiaostudy/p/11664076.html</a></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">报错No converter found for return value of type: class xxx</span><br></pre></td></tr></table></figure>
+
+<p>因为实体类没有写get&amp;set方法。通过插件解决</p>
+<p><img src="C:%5CUsers%5CZXY%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200715201528930.png" alt="image-20200715201528930"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">package com.example.juanhouduan.entity;</span><br><span class="line">import lombok.Data;</span><br><span class="line"></span><br><span class="line">@Data</span><br><span class="line">public class User &#123;</span><br><span class="line">    private int id;</span><br><span class="line">    private String username;</span><br><span class="line">    private String password;</span><br><span class="line"></span><br><span class="line">    public User(int i, String s1, String s2) &#123;</span><br><span class="line">        this.id &#x3D; i;</span><br><span class="line">        this.username &#x3D; s1;</span><br><span class="line">        this.password &#x3D; s2;</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;* 省略get、set和带参构造方法 *&#x2F;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -394,7 +451,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Bearbeitet am</span>
-                <time title="Geändert am: 2020-01-30 02:40:15" itemprop="dateModified" datetime="2020-01-30T02:40:15+08:00">2020-01-30</time>
+                <time title="Geändert am: 2020-07-15 23:30:45" itemprop="dateModified" datetime="2020-07-15T23:30:45+08:00">2020-07-15</time>
               </span>
 
           
@@ -415,6 +472,10 @@
 <p>电脑系统为Win10。使用服务器为阿里云ECS，系统为Ubuntu18.04。</p>
 <p>安装了宝塔面板。</p>
 <p>*以下都是在个人主机上安装。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+
+
+
 <h2 id="安装Node-js和Git"><a href="#安装Node-js和Git" class="headerlink" title="安装Node.js和Git"></a>安装Node.js和Git</h2><p>安装Hexo需要先安装Node.js和Git</p>
 <ul>
 <li><a href="http://nodejs.org/" target="_blank" rel="noopener">Node.js</a> (Node.js 版本需不低于 8.10，建议使用 Node.js 10.0 及以上版本)</li>
